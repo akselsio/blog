@@ -8,13 +8,13 @@ blog_theme: light
 
 # Optional settings
 
-discus_identifier: # Add your Disqus identifier
+discus_identifier: aksels.disqus.com
 ga_analytics: UA-88694407-1
 rss_enabled: true
 social:
   dribbble: # Add your Dribbble handle
   facebook: # Add your Facebook handle
-  flickr: # Add your Flickr handle
+  flickr: aksels
   github: AkselsLedins
   linkedin: akselsledins
   twitter: AkselsLedins
