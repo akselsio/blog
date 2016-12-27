@@ -55,7 +55,7 @@ Don't connect anything for the moment to the Raspberry.
 
 <br />
 
-> <small>__protip__: led direction matters - but you won't burn your house down if you have misplaced it.</small>
+> <small>__protip__: led direction matters - but you won't burn your house down if you have misplaced it</small>
 
 <br />
 
@@ -82,7 +82,142 @@ No ? Reverse your led.<br/>
 Plug the red jumper back to GPIO24.
 
 # (very) Little programming
+[source here](https://github.com/akselsio/raspberry-pi-email-notification/){:target="_blank"}
 
-#### This is a title:
-  - with a list
-  - with items
+> assuming that:
+>
+> you have basic knowledge of npm, a shell, nodejs
+>
+> npm >= 3
+>
+> node >= 4
+
+#### Dependencies
+
+- [config](https://github.com/lorenwest/node-config){:target="_blank"} 1.24.x
+- [onoff](https://github.com/fivdi/onoff){:target="_blank"} 1.1.x
+- [imap](https://github.com/mscdex/node-imap){:target="_blank"} 0.8.x
+- [gpio-misc](https://github.com/akselsio/gpio-misc-node){:target="_blank"}: 0.0.1
+
+
+Open your favorite term and start a new npm project and install these dependencies.
+
+{% highlight shell %}
+$ npm init
+$ npm i --save --save-exact config@1.24.0 onoff@1.1.x \
+  imap@0.8.x gpio-misc@0.0.1
+{% endhighlight %}
+
+_imap_ is here to retrieve information from our mailbox, _config_ to handle configuration files.
+
+_gpio-misc_ to make the led flash -- a small package I wrote, [source here](https://github.com/akselsio/gpio-misc-node/blob/master/src/blink/index.js){:target="_blank"}.
+
+_onoff_ is a dependency of _gpio-misc_, it's used to handle the communication between our little program and the raspberry's GPIOs.
+
+
+#### Configuration
+
+Let's create a __config__ folder and create a file __default.json__ inside.
+
+{% highlight json %}
+{
+  "auth": {
+    "email": "youremail@gmail.com",
+    "password": "yourpassword"
+  },
+  "imap": {
+    "host": "imap.gmail.com",
+    "port": 993,
+    "tls": true
+  }
+}
+{% endhighlight %}
+default.json
+
+Use the same structure, but fill it with your information of course :)<br/>
+The imap configuration for Gmail/Inbox is correct. If you use another mail service, such as <small>[Outlook](https://support.office.com/en-us/article/POP-and-IMAP-settings-for-Outlook-Office-365-for-business-7fc677eb-2491-4cbc-8153-8e7113525f6c){:target="_blank"},
+<small>[Yahoo](https://help.yahoo.com/kb/SLN4075.html){:target="blank"},
+<small>[Aol](https://www.lifewire.com/what-are-aol-mail-imap-settings-1170847){:target="blank"}
+</small>
+</small>
+</small>
+,you'll have to change this section also.
+
+
+<br />
+#### Creating your server
+<br />
+- Require Imap, to create the connection to our mailbox. <br />
+config to retrieve our variables previously set in default.json. <br />
+blink module from gpio-misc to make the led.. blink, you've guessed.
+
+{% highlight js %}
+var Imap = require('imap');
+var config = require('config');
+var blink = require('gpio-misc').blink;
+{% endhighlight %}
+
+- create an IMAP object, which can handle the connection to our mailbox, but also events
+such as receiving a new mail
+
+{% highlight js %}
+// Create an IMAP object
+var imap = new Imap({
+  user: config.get('auth.email'),
+  password: config.get('auth.password'),
+
+  host: config.get('imap.host'),
+  port: config.get('imap.port'),
+  tls: config.get('imap.tls'),
+});
+{% endhighlight %}
+
+- once the connection is successful to your email service, we'll open your inbox called __INBOX__ (the name of the inbox may change if you use a service other than gmail)
+{% highlight js %}
+// Open your Inbox
+imap.once('ready', () => {
+  imap.openBox('INBOX', true, () => {
+    console.log(`successfully connected to ${config.get('auth.email')}`);
+  });
+});
+{% endhighlight %}
+
+- we'll print errors, quite useful for debugging purposes
+{% highlight js %}
+// Display errors
+imap.once('error', err => {
+  console.error(`error: ${err.textCode}`);
+});
+{% endhighlight %}
+
+- remember you connected your LED on GPIO24 ? well when we will receive a mail, we will make blink this one, [42](http://goo.gl/xPe7W8){:target="_blank"} times
+
+{% highlight js %}
+// On new mail blink
+imap.on('mail', () => {
+  // Blink on GPIO24, 42 times
+  blink(24,42);
+})
+{% endhighlight %}
+
+- finally we'll launch or connection to our email service and wait for these events
+
+{% highlight js %}
+imap.connect();
+{% endhighlight %}
+
+#### Testing on your Raspberry Pi
+
+##### copying to your Raspberry
+
+scp thing
+
+more scp
+
+npm i
+
+#### troubleshooting
+
+sudo pls
+
+groups and ****
