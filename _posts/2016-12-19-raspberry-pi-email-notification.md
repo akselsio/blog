@@ -23,7 +23,8 @@ tags: [node, raspberrypi, js, email, diy]
 %}
 {% include image.html path="raspberry-pi-email-notification/breadboard_empty.png" path-detail="raspberry-pi-email-notification/breadboard_empty@2x.png" alt="breadboard" %}
 
-<br/>
+------------
+<br />
 # Hardware setup
 
 > <small>__warning__: don't plug your Raspberry in.</small>
@@ -81,6 +82,8 @@ Led lights up ? All good.
 No ? Reverse your led.<br/>
 Plug the red jumper back to GPIO24.
 
+------------
+<br />
 # (very) Little programming
 [source here](https://github.com/akselsio/raspberry-pi-email-notification/){:target="_blank"}
 
@@ -108,16 +111,19 @@ $ npm i --save --save-exact config@1.24.0 onoff@1.1.x \
   imap@0.8.x gpio-misc@0.0.1
 {% endhighlight %}
 
-_imap_ is here to retrieve information from our mailbox, _config_ to handle configuration files.
+`imap` is here to retrieve information from our mailbox
 
-_gpio-misc_ to make the led flash -- a small package I wrote, [source here](https://github.com/akselsio/gpio-misc-node/blob/master/src/blink/index.js){:target="_blank"}.
+`config` to handle configuration files.
 
-_onoff_ is a dependency of _gpio-misc_, it's used to handle the communication between our little program and the raspberry's GPIOs.
+`gpio-misc` to make the led flash -- a small package I wrote, [source here](https://github.com/akselsio/gpio-misc-node/blob/master/src/blink/index.js){:target="_blank"}.
+
+`onoff` is a dependency of _gpio-misc_, it's used to handle the communication between our little program and the raspberry's GPIOs.<br />
+**You should read installation instruction [here](https://github.com/fivdi/onoff#installation){:target="_blank"}.**
 
 
 #### Configuration
 
-Let's create a __config__ folder and create a file __default.json__ inside.
+Let's create a `config` folder and create a `default.json` file inside.
 
 {% highlight json %}
 {
@@ -206,18 +212,83 @@ imap.on('mail', () => {
 imap.connect();
 {% endhighlight %}
 
-#### Testing on your Raspberry Pi
+------------
+<br />
+# Testing on your Raspberry Pi
+<br />
 
-##### copying to your Raspberry
+> assuming that:
+>
+> node >= 4 & npm >= 3 is installed on it
+>
+> you have already logged into the Raspberry and configured an ssh connection
 
-scp thing
+##### Find your Raspberry PI's IP address and connect
 
-more scp
+<br />
+We'll run the `nmap` command with `-sn` flag wich will ping scan all the subnet range, and it'll print its hostname.
+In this example __192.168.1.21__ is our Raspberry local ip.
 
-npm i
+{% highlight shell %}
+# scan this subnet range
+$ nmap -sn 192.168.1.0/24 | grep raspberry
 
-#### troubleshooting
+# expected result
+Nmap scan report for raspberrypi.home (192.168.1.21)
+{% endhighlight %}
 
-sudo pls
+- we will create a folder where you will `scp` all our stuff to your Raspberry
+{% highlight shell %}
+# replace with your IP address of course
+$ ssh pi@192.168.1.21
 
-groups and ****
+# create the folder
+pi@raspberry:~ $ mkdir email-notification
+
+# and just logout
+pi@raspberry:~ $ logout
+{% endhighlight %}
+-  Copying our project to your Raspberry with `scp` from the root of our folder
+
+
+{% highlight shell %}
+scp -r . pi@raspberrypi:/home/pi/email-notification
+{% endhighlight %}
+
+
+<small>_nb: If you have also copied the folder **node_modules**, consider removing it on the Raspberry. Indeed, you surely have a different architecture between your Raspberry and your PC._</small>
+
+{% highlight shell %}
+# log back to your Raspberry
+$ ssh pi@192.168.1.21
+
+# go to the folder where you did your scp
+pi@raspberry:~ $ cd email-notification
+
+# install node modules
+pi@raspberry:~/email-notification $ npm i
+
+# launch your server
+# (npm start if you have configured your package.json)
+pi@raspberry:~/email-notification $ node server.js
+
+{% endhighlight %}
+
+------------
+<br />
+# Troubleshooting
+<br />
+
+#### File system permissions issues
+{% highlight shell %}
+fs.js:640
+  return binding.open(pathModule._makeLong(path), stringToFlags(flags), mode);
+                 ^
+
+Error: EACCES: permission denied, open '/sys/class/gpio/export'
+{% endhighlight %}
+
+If you encounter this error, 2 options:
+
+1) messy but works: `sudo node server.js` or `sudo npm start`<br />
+2) install Raspbian Jessie - from scratch not with apt-get
