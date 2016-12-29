@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Raspberry Pi email notifier"
-description: "Create a Raspberry email led notifier in less than 30 minutes."
+title: "Raspberry Pi email LED notifier"
+description: "Create a Raspberry email LED notifier in less than 30 minutes."
 tags: [node, raspberrypi, js, email, diy]
 ---
 
@@ -14,14 +14,13 @@ tags: [node, raspberrypi, js, email, diy]
 - x1 Raspberry Pi (v3 prefered)
 
 {% include sideBySideImages.html
-  path1="raspberry-pi-email-notification/breadboard_empty.png" path1-detail="raspberry-pi-email-notification/breadboard_empty@2x.png" alt1="breadboard"
-  path2="raspberry-pi-email-notification/breadboard_empty.png" path2-detail="raspberry-pi-email-notification/breadboard_empty@2x.png" alt2="breadboard"
+  path1="raspberry/breadboard.jpg" path1-detail="raspberry/breadboard@2x.jpg" alt1="Breadboard"
+  path2="raspberry/jumpers.jpg" path2-detail="raspberry/jumpers@2x.jpg" alt2="Jumper wires"
 %}
 {% include sideBySideImages.html
-  path1="raspberry-pi-email-notification/breadboard_empty.png" path1-detail="raspberry-pi-email-notification/breadboard_empty@2x.png" alt1="breadboard"
-  path2="raspberry-pi-email-notification/breadboard_empty.png" path2-detail="raspberry-pi-email-notification/breadboard_empty@2x.png" alt2="breadboard"
+  path1="raspberry/led.jpg" path1-detail="raspberry/led@2x.jpg" alt1="LED"
+  path2="raspberry/resistor.jpg" path2-detail="raspberry/resistor@2x.jpg" alt2="Resistor"
 %}
-{% include image.html path="raspberry-pi-email-notification/breadboard_empty.png" path-detail="raspberry-pi-email-notification/breadboard_empty@2x.png" alt="breadboard" %}
 
 ------------
 <br />
@@ -71,12 +70,16 @@ Don't connect anything for the moment to the Raspberry.
 ###### Testing your setup
 
 <br />
-{% include image.html path="raspberry-pi-email-notification/breadboard_pi_led.png" path-detail="raspberry-pi-email-notification/breadboard_pi_led@2x.png" alt="Our set up" %}
 
 If you are not sure about your setup, or if you are not sure about the positioning of your led, you can easily test it.
 
 Disconnect the __red jumper__ from the Raspberry, connect to the power supply your Raspberry Pi.
 Plug in the __red jumper__ into the 3.3V or the 5V pin briefly.
+
+{% include sideBySideImages.html
+  path1="raspberry-pi-email-notification/schema.jpg" path1-detail="raspberry-pi-email-notification/schema@2x.jpg" alt1="Testing your setup 1)"
+  path2="raspberry-pi-email-notification/test-schema.jpg" path2-detail="raspberry-pi-email-notification/test-schema@2x.jpg" alt2="Testing your setup 2)"
+%}
 
 Led lights up ? All good.
 No ? Reverse your led.<br/>
@@ -273,6 +276,8 @@ pi@raspberry:~/email-notification $ npm i
 pi@raspberry:~/email-notification $ node server.js
 
 {% endhighlight %}
+
+{% include image.html path="raspberry-pi-email-notification/blink.gif" path-detail="raspberry-pi-email-notification/blink@2x.gif" alt="End result" %}
 
 ------------
 <br />
