@@ -14,7 +14,10 @@ description: "Just talking about stuff written on black screen."
         </h5>
       </a>
       <p>{{ post.description }}</p>
-      <p>{% include image.html path=post.preview path-detail=post.preview2x alt=post.previewAlt %}</p>
+      {{ relative_url }}
+      <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+        <img src="{% asset_path '{{ post.preview }}' %}" alt="{{ post.previewAlt }}" />
+      </a>
       <div class="article-list-footer">
         <span class="article-list-date">
           {{ post.date | date: "%B %-d, %Y" }}
