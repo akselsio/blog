@@ -10,7 +10,7 @@ blog_theme: light
 
 discus_identifier: aksels.disqus.com
 ga_analytics: UA-88694407-1
-rss_enabled: true
+rss_enabled: false
 social:
   dribbble: # Add your Dribbble handle
   facebook: # Add your Facebook handle
