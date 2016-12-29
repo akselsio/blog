@@ -211,7 +211,7 @@ imap.on('mail', () => {
 })
 {% endhighlight %}
 
-- finally we'll launch or connection to our email service and wait for these events
+- finally we'll launch our connection to our email service and wait for these events
 
 {% highlight js %}
 imap.connect();
