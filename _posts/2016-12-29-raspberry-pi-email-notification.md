@@ -2,6 +2,9 @@
 layout: post
 title: "Raspberry Pi email LED notifier"
 description: "Create a Raspberry email LED notifier in less than 30 minutes."
+preview: "raspberry-pi-email-notification/test-schema.jpg"
+preview2x: "raspberry-pi-email-notification/test-schema@2x.jpg"
+previewAlt: "Raspberry Pi LED on"
 tags: [node, raspberrypi, js, email, diy]
 ---
 
