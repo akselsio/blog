@@ -5,13 +5,13 @@ description: "Create a Raspberry email LED notifier in less than 30 minutes."
 tags: [node, raspberrypi, js, email, diy]
 ---
 
-# What do you need ?
+# What do you need?
 
 - x1 breadboard
 - x2 jumper (wire) (male/female)
 - x1 led
 - x1 330Ω resistor
-- x1 Raspberry Pi (v3 prefered)
+- x1 Raspberry Pi (v3 preferred)
 
 {% include sideBySideImages.html
   path1="raspberry/breadboard.jpg" path1-detail="raspberry/breadboard@2x.jpg" alt1="Breadboard"
@@ -48,10 +48,10 @@ I advise you at first to follow my schema and then experiment by yourself. <br/>
 Don't connect anything for the moment to the Raspberry.
 <br/>
 
-- __red jumper :__ to a random column
-- __blue jumper :__ to a __(-)__ row
-- __resistor :__ to the same __(-)__ row where we connected our blue jumper and to a column _(direction does not matter)_
-- __led :__ one leg in the __resistor column__ and one in the __red jumper__ one's
+- __red jumper:__ to a random column
+- __blue jumper:__ to a __(-)__ row
+- __resistor:__ to the same __(-)__ row where we connected our blue jumper and to a column _(direction does not matter)_
+- __led:__ one leg in the __resistor column__ and one in the __red jumper__ one's
 
 <br />
 
@@ -60,20 +60,21 @@ Don't connect anything for the moment to the Raspberry.
 <br />
 
 ###### Connecting jumpers to your Raspberry
-
 <br />
+
 {% include image.html path="raspberry/pin_layout.png" path-detail="raspberry/pin_layout@2x.png" alt="Our set up" %}
 <br />
-- __blue jumper :__ GND PIN
-- __red jumper :__ GPIO24 PIN
 
+- __blue jumper:__ GND PIN
+- __red jumper:__ GPIO24 PIN
+
+<br />
 ###### Testing your setup
-
 <br />
 
 If you are not sure about your setup, or if you are not sure about the positioning of your led, you can easily test it.
 
-Disconnect the __red jumper__ from the Raspberry, connect to the power supply your Raspberry Pi.
+Disconnect the __red jumper__ from the Raspberry, connect to the power supply to your Raspberry Pi.
 Plug in the __red jumper__ into the 3.3V or the 5V pin briefly.
 
 {% include sideBySideImages.html
@@ -81,8 +82,8 @@ Plug in the __red jumper__ into the 3.3V or the 5V pin briefly.
   path2="raspberry-pi-email-notification/test-schema.jpg" path2-detail="raspberry-pi-email-notification/test-schema@2x.jpg" alt2="Testing your setup 2)"
 %}
 
-Led lights up ? All good.
-No ? Reverse your led.<br/>
+Led lights up? All good.
+No? Reverse your led.<br/>
 Plug the red jumper back to GPIO24.
 
 ------------
@@ -91,8 +92,6 @@ Plug the red jumper back to GPIO24.
 [source here](https://github.com/akselsio/raspberry-pi-email-notification/){:target="_blank"}
 
 > assuming that:
->
-> you have basic knowledge of npm, a shell, nodejs
 >
 > npm >= 3
 >
@@ -118,7 +117,7 @@ $ npm i --save --save-exact config@1.24.0 onoff@1.1.x \
 
 `config` to handle configuration files.
 
-`gpio-misc` to make the led flash -- a small package I wrote, [source here](https://github.com/akselsio/gpio-misc-node/blob/master/src/blink/index.js){:target="_blank"}.
+`gpio-misc` to make the LED flash -- a small package I wrote, [source here](https://github.com/akselsio/gpio-misc-node/blob/master/src/blink/index.js){:target="_blank"}.
 
 `onoff` is a dependency of _gpio-misc_, it's used to handle the communication between our little program and the raspberry's GPIOs.<br />
 **You should read installation instruction [here](https://github.com/fivdi/onoff#installation){:target="_blank"}.**
@@ -150,7 +149,7 @@ The imap configuration for Gmail/Inbox is correct. If you use another mail servi
 </small>
 </small>
 </small>
-,you'll have to change this section also.
+,you will have to change this section as well.
 
 
 <br />
@@ -158,7 +157,7 @@ The imap configuration for Gmail/Inbox is correct. If you use another mail servi
 <br />
 - Require Imap, to create the connection to our mailbox. <br />
 config to retrieve our variables previously set in default.json. <br />
-blink module from gpio-misc to make the led.. blink, you've guessed.
+blink module from gpio-misc to make the LED.. blink, you've guessed.
 
 {% highlight js %}
 var Imap = require('imap');
@@ -199,7 +198,7 @@ imap.once('error', err => {
 });
 {% endhighlight %}
 
-- remember you connected your LED on GPIO24 ? well when we will receive a mail, we will make blink this one, [42](http://goo.gl/xPe7W8){:target="_blank"} times
+- remember you connected your LED on GPIO24? well when we will receive a mail, we will make blink this one, [42](http://goo.gl/xPe7W8){:target="_blank"} times
 
 {% highlight js %}
 // On new mail blink
@@ -224,13 +223,13 @@ imap.connect();
 >
 > node >= 4 & npm >= 3 is installed on it
 >
-> you have already logged into the Raspberry and configured an ssh connection
+> you have already logged into the Raspberry and configured a ssh connection
 
 ##### Find your Raspberry PI's IP address and connect
 
 <br />
-We'll run the `nmap` command with `-sn` flag wich will ping scan all the subnet range, and it'll print its hostname.
-In this example __192.168.1.21__ is our Raspberry local ip.
+We'll run the `nmap` command with `-sn` flag which will ping scan all the subnet range, and it'll print its hostname.
+In this example __192.168.1.21__ is our Raspberry local IP.
 
 {% highlight shell %}
 # scan this subnet range
@@ -251,7 +250,7 @@ pi@raspberry:~ $ mkdir email-notification
 # and just logout
 pi@raspberry:~ $ logout
 {% endhighlight %}
--  Copying our project to your Raspberry with `scp` from the root of our folder
+-  copying our project to your Raspberry with `scp` from the root of our folder
 
 
 {% highlight shell %}
@@ -293,7 +292,7 @@ fs.js:640
 Error: EACCES: permission denied, open '/sys/class/gpio/export'
 {% endhighlight %}
 
-If you encounter this error, 2 options:
+If you encounter this error, two options:
 
-1) messy but works: `sudo node server.js` or `sudo npm start`<br />
+1) messy, but works: `sudo node server.js` or `sudo npm start`<br />
 2) install Raspbian Jessie - from scratch not with apt-get
