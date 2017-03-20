@@ -8,7 +8,7 @@ blog_theme: light
 
 # Optional settings
 
-discus_identifier: aksels.disqus.com
+discus_identifier: aksels
 ga_analytics: UA-88694407-1
 rss_enabled: false
 social:
