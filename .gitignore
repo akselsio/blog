@@ -4,5 +4,7 @@
 /.asset-cache/*
 /_site/*
 /_assets/bower/*
+/_assets/yarn/*
 .sass-cache/
 .jekyll-metadata
+.jekyll-cache

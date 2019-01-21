@@ -16,7 +16,7 @@ description: "Just talking about stuff written on black screen."
       <p>{{ post.description }}</p>
       {{ relative_url }}
       <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
-        <img src="{% asset_path '{{ post.preview }}' %}" alt="{{ post.previewAlt }}" />
+        <img src="{% asset '{{ post.preview }}' @path %}" alt="{{ post.previewAlt }}" />
       </a>
       <div class="article-list-footer">
         <span class="article-list-date">

@@ -1,12 +1,20 @@
 <table>
-  <td>
-    <a href="{% asset_path '{{ include.path1-detail }}' %}" class="fluidbox-trigger">
-      <img src="{% asset_path '{{ include.path1 }}' %}" alt="{{ include.alt1 }}" />
+  <td style="width: 50%">
+    <a href="{% asset '{{ include.path1-detail }}' @path %}">
+      <img src="{% asset '{{ include.path1 }}' @path %}" alt="{{ include.alt }}" class="zooming"
+        data-rjs="{% asset '{{ include.path1-detail }}' @path %}"
+        data-zooming-width="{{ assets[include.path1-detail].dimensions.width }}"
+        data-zooming-height="{{ assets[include.path1-detail].dimensions.height }}"
+      />
     </a>
   </td>
-  <td>
-    <a href="{% asset_path '{{ include.path2-detail }}' %}" class="fluidbox-trigger">
-      <img src="{% asset_path '{{ include.path2 }}' %}" alt="{{ include.alt2 }}" />
-    </a>
+  <td style="width: 50%">
+      <a href="{% asset '{{ include.path2-detail }}' @path %}">
+      <img src="{% asset '{{ include.path2 }}' @path %}" alt="{{ include.alt }}" class="zooming"
+        data-rjs="{% asset '{{ include.path2-detail }}' @path %}"
+        data-zooming-width="{{ assets[include.path2-detail].dimensions.width }}"
+        data-zooming-height="{{ assets[include.path2-detail].dimensions.height }}"
+      />
+    </a>    
   </td>
 </table>
