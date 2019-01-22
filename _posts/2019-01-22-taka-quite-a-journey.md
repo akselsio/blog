@@ -25,7 +25,7 @@ Fall 2016, I broke my One Plus X, then bought an iPhone 7.
 
 > image of both phones
 
-And a during an April 2017 lunch I was complaining about Google Maps which doesn't work in Nantes and that the TAN application is terrible and I told my coworkers:
+And a during a late April 2017 lunch I was complaining about Google Maps which doesn't work in Nantes and that the TAN application is terrible and I told my coworkers:
 
 ```
 (aksels)    I will code my own simple version of google
@@ -41,18 +41,20 @@ Few days later, I'm there with my POC:
 
 with a decent architecture orchestred on GCP Kubernetes.
 
-> architecture
+{% include image.html path="taka-quite-a-journey/first-architecture.png" path-detail="taka-quite-a-journey/first-architecture.png" alt="Archicture" %}
 
-And on top of that you have 300$ credit as a welcoming gift from google to try it out.
+<br /><br />
+Why Google Cloud Platform ?<br />
+You have 300$ credit as a welcoming gift from Google to try it out. Perfect for a side project.
 
 {% include image.html path="taka-quite-a-journey/google-free-tier.png" path-detail="taka-quite-a-journey/google-free-tier.png" alt="Google Free Tier" %}
 
-
+<br /><br />
 But a week later you take an AIR France plane (delayed but you are getting used to)
 
 {% include image.html path="taka-quite-a-journey/af-delay.jpg" path-detail="taka-quite-a-journey/af-delay.jpg" alt="AF Delay" %}
 
-and meet some friends in Singapore
+and you meet some friends in Singapore
 
 {% include image.html path="taka-quite-a-journey/aksels-singapore.jpg" path-detail="taka-quite-a-journey/aksels-singapore.jpg" alt="Aksels @ Singapore early May 2018" %}
 
@@ -68,20 +70,41 @@ and then you come back, your shaving cream exploded in your backpack and next da
 <br />
 <br />
 
-Days are passing and.. Oh, I was talking about an app right.. 
+Days are passing and.. Oh, I was talking about a side-project right.. 
+
+
+You see the point ? It's easy to break your workflow and motivation.
 
 <br />
 <div style="text-align:center;"><b><u>The fun part of developing this project ended up here.</u></b></div>
 {% include image.html path="taka-quite-a-journey/fun-ended-here.png" path-detail="taka-quite-a-journey/fun-ended-here.png" alt="Where is the fun part" %}
 
+If the activity graph had a legend it would be:
 
-> some words about : details are important, bug free, you want to deliver a perfect ux but still it's a side project so you don't have a lot of time to invest
+{% include image.html path="taka-quite-a-journey/activity-graph-fixed.png" path-detail="taka-quite-a-journey/activity-graph-fixed.png" alt="Activity graph" %}
+
+
+The fun part was looking how GTFS Server works, implementing a go API, bootstraping a vue web application. And then you ask yourself:
+
+```
+can I communicate about this now ?
+or is this too early ?
+
+There are so many things I could improve,
+users will be disappointed if I ship this.
+```
+
+<br />
+But in fact the lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
+
 
 <br /><br />
 # Mobile application
 
 At some point <a href="https://nantes.cool" target="_blank">nantes.cool</a> was not enough. And don't even try at this point to make your users install your webapp on their phones.
+
 <br />
+
 
 {% include image.html path="taka-quite-a-journey/taka-very-responsive.gif" path-detail="taka-quite-a-journey/taka-very-responsive.gif" alt="Very responsive" %}
 <br />
@@ -104,12 +127,12 @@ Actually I'm exagerrating they don't give up - mostly because we bring them a de
 Why are we even trying to create an app ?<br />
 To know how to get around Nantes you have two main options (on iPhone):
 
-> talk about naoned
+> On Android there is NaonedBus app which is really great.
 
 ### Google Maps
 
 Which doesn't work for public transportation in Nantes. It will offer you two choices:
-- grab an Uber
+- get an uber ride
 - walk by foot
 
 {% include image.html path="taka-quite-a-journey/google.jpg" path-detail="taka-quite-a-journey/google.jpg" alt="Google Maps." %}
@@ -132,7 +155,7 @@ The only thing that prevents user from uninstalling this app is that it allows y
 
 ### Cross-Platform 
 
-We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : Naoned. It's clean, it works and it has 10 years of development behind it. It's written in Java, no chance to get it on iOS anytime soon.
+We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : NaonedBus. It's clean, it works and it has 10 years of development behind it. It's written in Java, no chance to get it on iOS anytime soon.
 
 So I heard you wanted to create a cross-platform native app, choose between:
 - react-native
@@ -144,28 +167,64 @@ So I heard you wanted to create a cross-platform native app, choose between:
 
 And this is how I made my choice:
 
-- react-native
-    - I have 4 years of experience in React development, LGTM
-- flutter
-    - no maps (fixed 29 nov 2018)
-- xamarin
-    - .NET, I pass
-- ionic and cie
-    - I don't want my website in a webview
-- NativeScript
-    - I don't like Angular
-- expo
-    - react-native but without the headache : ok, <u>that's the best choice</u>
+- <b>react-native</b> I have 4 years of experience in React development, LGTM
+- <b>flutter</b> no maps (fixed 29 nov 2018)
+- <b>xamarin</b> .NET, I pass
+- <b>ionic and cie</b> I don't want my website in a webview
+- <b>NativeScript</b> I don't like Angular
+- <b>expo</b> react-native but without the headache : ok, <u>that's the best choice</u>
 
+## We need a Geocoding API
+
+When the users search for an address.
+
+>> insert gif
 
 ### Google API
 
-rip
+Let's read the <a href="https://www.google.com/intl/fr_US/help/terms_maps.html" target="_blank">TOS of Google's APIs</a>. Just kidding, here the part which interest us:
 
+```
+2. Prohibited Conduct. When using Google Maps/Google Earth,
+you may not (or allow those acting on your behalf to):
+
+[...]
+d. use Google Maps/Google Earth to create or augment any
+other mapping-related dataset (including a mapping or
+navigation dataset, business listings database, mailing
+list, or telemarketing list) for use in a service that
+is a substitute for, or a substantially similar service to,
+Google Maps/Google Earth;
+[...]
+```
+
+<b>"a substantially similar service to, Google Maps"</b>, well our App is quite similar to Google Maps.
+
+{% include image.html path="taka-quite-a-journey/taka-vs-google.png" path-detail="taka-quite-a-journey/taka-vs-google.png" alt="Taka vs Google" %}
+{% include image.html path="taka-quite-a-journey/taka-vs-google-2.png" path-detail="taka-quite-a-journey/taka-vs-google-2.png" alt="Taka vs Google" %}
+
+It is even better in our use case. But they look quite <small><small>a lot</small></small> the same, agreed.
+
+
+We <u>cannot</u> use Google API's in our project.
+
+<br /><br />
 ### Algolia
 
-yeah
+{% include image.html path="taka-quite-a-journey/algolia.svg" path-detail="taka-quite-a-journey/algolia.svg" alt="Algolia logo" %}
 
+It has a free plan designed especially for our type of project:
+
+{% include image.html path="taka-quite-a-journey/algolia-plan.png" path-detail="taka-quite-a-journey/algolia-plan.png" alt="Algolia free plan" %}
+
+And it has the <a href="https://community.algolia.com/places/" target="_blank">Algolia Places API</a> and it does everything we need:
+
+- search for an address and get it's position
+- reverse geocoding
+
+<div style="text-align:center;"><b>Solution solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
+
+<br /><br />
 ### You are probably not a designer
 
 <br />
@@ -180,7 +239,9 @@ We are here :
 What happened during the following months ? Oh yes, absolutly nothing.
 Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another projects and they are way more interesting than finishing this.
 
-### GCP
+## Where do I deploy it ?
+
+### Google Cloud Platform
 
 I've talked about free tier right ?
 
@@ -205,14 +266,18 @@ How many users ? Let's ask Google Analytics:
 That's <b>1.24 euros per visit of load balancing</b>. Worth it.
 </div>
 
+<br /><br />
 ### OVH
 
-cheaper
+Now that you wasted a lot of money, you search for a cheaper alternatives.
 
+We have 1 API, one GTFS Server, one server which only serves the front end.<br />Let's be confortable, just take one VPS for each.
 
+{% include image.html path="taka-quite-a-journey/ovh-quote.png" path-detail="taka-quite-a-journey/ovh-quote.png" alt="OVH is cheap for side projects" %}
 
+<b>10.76 euros per month</b> for <b>3 VPS</b>. Suits our needs and it's only <b>13%</b> of our monthly GCP invoice.
 
-
+Yes you need to log each time to your VPS to upgrade, but it works and it's really cost effective. Furthermore, users don't care.
 
 
 # Actually you don't even use your own app
@@ -222,3 +287,10 @@ because public transportation are terrible here and you are way faster with your
 > they see me rolling
 
 <br /><br /><br />
+
+
+# FAQ
+
+Why nantes.cool ?<br />
+Because it's easy to remember: it has the city in the domain and it's a cool app.
+
