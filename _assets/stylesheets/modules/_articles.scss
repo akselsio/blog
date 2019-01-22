@@ -155,7 +155,6 @@
   p,
   ul,
   ol,
-  img,
   blockquote {
     display: block;
     margin-bottom: 30px;
@@ -177,6 +176,13 @@
     margin-top: -4px;
     margin-bottom: 0;
     vertical-align: middle;
+  }
+  img {
+    display: block;
+    margin-bottom: 30px;
+    width: auto;
+    max-height: 40vh;
+    margin: 0 auto;
   }
 }
 
