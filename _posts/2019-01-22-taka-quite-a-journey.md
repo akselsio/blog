@@ -176,13 +176,14 @@ And this is how I made my choice:
 
 ## We need a Geocoding API
 
-When the users search for an address.
+When the users search for an address we need to translate it in coordinates.
 
->> insert gif
+{% include image.html path="taka-quite-a-journey/location-search.gif" path-detail="taka-quite-a-journey/location-search.gif" alt="Location search illustration" %}
+
 
 ### Google API
 
-Let's read the <a href="https://www.google.com/intl/fr_US/help/terms_maps.html" target="_blank">TOS of Google's APIs</a>. Just kidding, here the part which interest us:
+Let's read the <a href="https://www.google.com/intl/fr_US/help/terms_maps.html" target="_blank">TOS of Google's APIs</a>.<br />Just kidding, here the part which interest us:
 
 ```
 2. Prohibited Conduct. When using Google Maps/Google Earth,
@@ -209,7 +210,7 @@ It is even better in our use case. But they look quite <small><small>a lot</smal
 We <u>cannot</u> use Google API's in our project.
 
 <br /><br />
-### Algolia
+### Alternative: Algolia
 
 {% include image.html path="taka-quite-a-journey/algolia.svg" path-detail="taka-quite-a-journey/algolia.svg" alt="Algolia logo" %}
 
@@ -225,27 +226,13 @@ And it has the <a href="https://community.algolia.com/places/" target="_blank">A
 <div style="text-align:center;"><b>Solution solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
 
 <br /><br />
-### You are probably not a designer
-
-<br />
-{% include image.html path="taka-quite-a-journey/taka-mobile-app-first-release.png" path-detail="taka-quite-a-journey/taka-mobile-app-first-release.png" alt="Taka mobile app first release" %}
-
-Beautiful isn't it ?
-
-We are here :
-
-{% include image.html path="taka-quite-a-journey/taka-activity-first-poc.png" path-detail="taka-quite-a-journey/taka-activity-first-poc.png" alt="TAKA activity graph" %}
-
-What happened during the following months ? Oh yes, absolutly nothing.
-Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another projects and they are way more interesting than finishing this.
-
-## Where do I deploy it ?
+## Where should I deploy it ?
 
 ### Google Cloud Platform
 
 I've talked about free tier right ?
 
-7 months later..
+7 months of procrastination later..
 
 {% include image.html path="taka-quite-a-journey/gcp-outch.png" path-detail="taka-quite-a-journey/gcp-outch.png" alt="GCP is expensive" %}
 
@@ -260,7 +247,7 @@ How many users ? Let's ask Google Analytics:
 
 {% include image.html path="taka-quite-a-journey/google-analytics-2018.png" path-detail="taka-quite-a-journey/google-analytics-2018.png" alt="GCP is very very expensive" %}
 
-<b>102 users</b>, probably 80% of this visits are myself.
+<b>102 users</b>, probably half of this visits are myself and the other half are bots.
 
 <div style="text-align:center;">
 That's <b>1.24 euros per visit of load balancing</b>. Worth it.
@@ -269,18 +256,49 @@ That's <b>1.24 euros per visit of load balancing</b>. Worth it.
 <br /><br />
 ### OVH
 
-Now that you wasted a lot of money, you search for a cheaper alternatives.
+Now that you wasted a lot of money, you search for a cheaper alternative.
 
 We have 1 API, one GTFS Server, one server which only serves the front end.<br />Let's be confortable, just take one VPS for each.
 
 {% include image.html path="taka-quite-a-journey/ovh-quote.png" path-detail="taka-quite-a-journey/ovh-quote.png" alt="OVH is cheap for side projects" %}
 
-<b>10.76 euros per month</b> for <b>3 VPS</b>. Suits our needs and it's only <b>13%</b> of our monthly GCP invoice.
+<b>10.76 euros per month</b> after taxes for <b>3 VPS</b>. Suits our needs and it's only <b>13%</b> of our monthly GCP invoice.
 
 Yes you need to log each time to your VPS to upgrade, but it works and it's really cost effective. Furthermore, users don't care.
 
+<br /><br />
+# Why did it take so long?
+<br /><br />
+### You are probably not a designer
 
-# Actually you don't even use your own app
+<br />
+{% include image.html path="taka-quite-a-journey/taka-mobile-app-first-release.png" path-detail="taka-quite-a-journey/taka-mobile-app-first-release.png" alt="Taka mobile app first release" %}
+
+<div style="text-align:center;">
+Beautiful isn't it ?
+</div>
+
+We are here:
+
+{% include image.html path="taka-quite-a-journey/taka-activity-first-poc.png" path-detail="taka-quite-a-journey/taka-activity-first-poc.png" alt="TAKA activity graph" %}
+
+What happened during the following months ? Oh yes, absolutly nothing.
+Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another projects and they are way more interesting than finishing this.
+
+<br /><br />
+### Small tweaks take a lot of time
+
+Because it's something you want to actually ship, you try as much as possible to make it:
+- pixel perfect
+- reduce user clicks to its minimum
+- fast
+- secure
+- .. perfect !
+
+There are some points you can't avoid (eg: security).
+
+<br /><br />
+# In the end, you don't even use your own app
 
 because public transportation are terrible here and you are way faster with your ES2.
 
