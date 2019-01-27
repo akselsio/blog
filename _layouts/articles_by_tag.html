@@ -26,7 +26,7 @@ layout: default
               {{ post.content | number_of_words }}
             {% endcapture %}
             {% unless words contains "-" %}
-              {{ words | plus: 250 | divided_by: 250 | append: " minute read" }}
+              {{ words | plus: 180 | divided_by: 180 | append: " min. read" }}
             {% endunless %}
           </span>
           <span class="article-list-divider">-</span>
