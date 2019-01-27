@@ -5,7 +5,7 @@ description: "A public transportation app for Nantes, France"
 preview: "taka-quite-a-journey/taka-preview.png"
 preview2x: "taka-quite-a-journey/taka-preview.png"
 previewAlt: "TAKA Preview"
-tags: [poc, project, ios, android, react-native, expo]
+tags: [poc, project, ios, android, react-native, expo, go]
 ---
 
 # TL;DR
