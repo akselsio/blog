@@ -14,7 +14,7 @@ tags: [poc, project, ios, android, react-native, expo]
 - A POC is not enough to ship a project, but actually the project will never be ready.
     Just ship it at some point.
 - A project without a business opportunity in mind is hard to work on.
-- I spent a lot of money and time but I have learned a lot - no ragrets
+- I spent a lot of money and time, but I have learned a lot - no ragrets
 - Procrastination sucks
 
 <br /><br />
@@ -36,11 +36,11 @@ And a during a late April 2017 lunch I was complaining about Google Maps which d
 
 <br />
 
-Few days later, I'm there with my POC:
+A few days later, I'm there with my POC:
 
 {% include image.html path="taka-quite-a-journey/taka-web-early.png" path-detail="taka-quite-a-journey/taka-web-early.png" alt="Taka WEB version early" %}
 
-with a decent architecture orchestred on GCP Kubernetes.
+with a decent architecture orchestrated on GCP Kubernetes.
 
 {% include image.html path="taka-quite-a-journey/first-architecture.png" path-detail="taka-quite-a-journey/first-architecture.png" alt="Archicture" %}
 
@@ -51,15 +51,15 @@ You have 300$ credit as a welcoming gift from Google to try it out. Perfect for 
 {% include image.html path="taka-quite-a-journey/google-free-tier.png" path-detail="taka-quite-a-journey/google-free-tier.png" alt="Google Free Tier" %}
 
 <br /><br />
-But a week later you take an AIR France plane (delayed but you are getting used to)
+However, a week later you take an AIR France plane (delayed, but you are getting used to)..
 
 {% include image.html path="taka-quite-a-journey/af-delay.jpg" path-detail="taka-quite-a-journey/af-delay.jpg" alt="AF Delay" %}
 
-and you meet some friends in Singapore
+..and you meet some friends in Singapore..
 
 {% include image.html path="taka-quite-a-journey/aksels-singapore.jpg" path-detail="taka-quite-a-journey/aksels-singapore.jpg" alt="Aksels @ Singapore early May 2018" %}
 
-and you go with them in Vietnam, Cambodia and Thailand for a couple of weeks and take a classic selfie of someone who grew up in britanny.
+..and you go with them in Vietnam, Cambodia and Thailand for a couple of weeks and take a classic selfie of someone who grew up in Brittany..
 
 {% include image.html path="taka-quite-a-journey/aksels-vietnam-bretagne.jpg" path-detail="taka-quite-a-journey/aksels-vietnam-bretagne.jpg" alt="Aksels @ Vietnam early May 2018" %}
 
@@ -71,8 +71,7 @@ and then you come back, your shaving cream exploded in your backpack and next da
 <br />
 <br />
 
-Days are passing and.. Oh, I was talking about a side-project right.. 
-
+Days are passing and.. Oh, I was talking about a side-project right..
 
 You see the point ? It's easy to break your workflow and motivation. It's all about keeping the momentum.
 
@@ -80,11 +79,11 @@ You see the point ? It's easy to break your workflow and motivation. It's all ab
 <div style="text-align:center;"><b><u>The fun part of developing this project ended up here.</u></b></div>
 {% include image.html path="taka-quite-a-journey/fun-ended-here.png" path-detail="taka-quite-a-journey/fun-ended-here.png" alt="Where is the fun part" %}
 
-If the activity graph had a legend it would be:
+If the Github's activity graph had a legend it would be:
 
 {% include image.html path="taka-quite-a-journey/activity-graph-fixed.png" path-detail="taka-quite-a-journey/activity-graph-fixed.png" alt="Activity graph" %}
 
-The fun part was looking how a GTFS Server works, implementing a go API, bootstraping a vue web application. And then you ask yourself:
+The fun part was looking how a GTFS Server works, implementing a Go API, bootstraping a vue web application. And then you ask yourself:
 
 ```
 can I communicate about this now ?
@@ -95,23 +94,25 @@ users will be disappointed if I ship this.
 ```
 
 <br />
-But in fact the lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
+The lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
 
-The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week) where you can work on personal projects. IMHO, 30min is too short, 1h is great but it's too long, it mostly depends on your lifestyle. 
+The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week) where you can work on personal projects. IMHO, 30min is too short, 1h is great, but it's too long, it mostly depends on your lifestyle.
 
-Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands on your computer. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
+Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands-on your computer. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
 
 <br /><br />
 # Mobile application
 
-At some point <a href="https://nantes.cool" target="_blank">nantes.cool</a> was not enough. And don't even try at this point to make your users install your webapp on their phones.
+I've shown my app to some relatives, friends and either they didn't show any interest or they pretended some, but no one will ever use this website. The truth is that you don't go on a website when you are on the go. You launch an app, check next bus / tramway and then leave. You won't open your computer to check the journey for their daily commute.
+
+At some point <a href="https://nantes.cool" target="_blank">nantes.cool</a> was not enough. Don't even try at this point to make your users install your webapp on their phones.
 
 <br />
 
 
 {% include image.html path="taka-quite-a-journey/taka-very-responsive.gif" path-detail="taka-quite-a-journey/taka-very-responsive.gif" alt="Very responsive" %}
 <br />
-Oh it is reponsive right, but 99.99% (if not 100%) of your users won't install your webapp unless you tell them how to do it. I know this very well because at <a href="https://fizix.io" target="_blank">FIZIX</a> where I work we have a webapp for our personal trainers. Oh boy..
+Oh it is responsive right, but 99.99% (if not 100%) of your users won't install your webapp unless you tell them how to do it. I know this very well because at <a href="https://fizix.io" target="_blank">FIZIX</a> where I work we have a webapp for our personal trainers. Oh boy..
 
 ```
 (pers. trainer) I can't find your app on the store
@@ -122,7 +123,7 @@ Oh it is reponsive right, but 99.99% (if not 100%) of your users won't install y
 ```
 <br />
 
-Actually I'm exagerrating they don't give up - mostly because we bring them a decent amount of income, but still we have to explain each time how to do it. But once they have it on the phone everything is alright, but it couldn't work for our project.
+Actually I'm exaggerating they don't give up - mostly because we bring them a decent amount of income, but still we have to explain each time how to do it. However, once they have it on the phone everything is alright, but it couldn't work for our project.
 
 <br /><br />
 ## What are the other app alternatives ?
@@ -130,7 +131,7 @@ Actually I'm exagerrating they don't give up - mostly because we bring them a de
 Why are we even trying to create an app ?<br />
 To know how to get around Nantes you have two main options (on iPhone):
 
-> <small>On Android there is NaonedBus app which is really great.</small>
+> <small>On Android there is NaonedBus app, which is really great.</small>
 
 ### **Google Maps**
 
@@ -145,8 +146,8 @@ Which doesn't work for public transportation in Nantes. It will offer you two ch
 
 {% include image.html path="taka-quite-a-journey/tan-preview.jpg" path-detail="taka-quite-a-journey/tan-preview.jpg" alt="TAN Preview" %}
 
-
 It may seem a little bit harsh but:
+
 - ￼❌ ￼it is slow
 - ❌ the UI is more than outdated
 - ❌ it doesn't work 100% of the time
@@ -158,9 +159,9 @@ The only thing that prevents user from uninstalling this app is that it allows y
 # Development adventures
 ## Cross-platform mobile app
 
-We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS anytime soon.
+We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS any time soon.
 
-So I heard you wanted to create a cross-platform native app, choose between:
+So, I heard you wanted to create a cross-platform native app, choose between:
 
 - react-native
 - flutter
@@ -275,7 +276,7 @@ That's <b>1.24 euros per visit of load balancing</b>. Worth it.
 
 Now that you wasted a lot of money, you search for a cheaper alternative.
 
-We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let's be confortable, just take one VPS for each.
+We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let's be comfortable, just take one VPS for each.
 
 {% include image.html path="taka-quite-a-journey/ovh-quote.png" path-detail="taka-quite-a-journey/ovh-quote.png" alt="OVH is cheap for side projects" %}
 
@@ -313,7 +314,7 @@ Because it's something you want to actually ship, you try as much as possible to
 - secure
 - .. perfect !
 
-There are some points you can't avoid (eg: security). There will be always room for improvement but you have to deal with it. It's only a side project. Something I didn't do for this side project and I should have, is a MVP's roadmap. For my next project, even before prototyping something, I'll write a roadmap and launch it right afterways.
+There are some points you can't avoid (eg: security). There will be always room for improvement, but you have to deal with it. It's only a side project. Something I didn't do for this side project and I should have, is a MVP's roadmap. For my next project, even before prototyping something, I'll write a roadmap and launch it right after its completion.
 
 <br /><br />
 ### No business opportunities
