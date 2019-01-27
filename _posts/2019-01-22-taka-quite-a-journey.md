@@ -21,12 +21,7 @@ tags: [poc, project, ios, android, react-native, expo, go]
 # How it started
 <br />
 
-Summer 2016, move from Paris to Nantes.<br />
-Fall 2016, I broke my One Plus X, then bought an iPhone 7.
-
-> image of both phones
-
-And a during a late April 2017 lunch I was complaining about Google Maps which doesn't work in Nantes and that the TAN application is terrible and I told my coworkers:
+During a late April 2017 lunch I was complaining about Google Maps which doesn't work in Nantes and that the TAN application is terrible and I told my coworkers:
 
 ```
 (aksels)    I will code my own simple version of google
@@ -63,7 +58,7 @@ However, a week later you take an AIR France plane (delayed, but you are getting
 
 {% include image.html path="taka-quite-a-journey/aksels-vietnam-bretagne.jpg" path-detail="taka-quite-a-journey/aksels-vietnam-bretagne.jpg" alt="Aksels @ Vietnam early May 2018" %}
 
-and then you come back, your shaving cream exploded in your backpack and next day you go back to work and catch up on everything you missed.
+..and then you come back, your shaving cream exploded in your backpack and next day you go back to work and catch up on everything you missed.
 
 {% include image.html path="taka-quite-a-journey/aksels-bad-luck.jpg" path-detail="taka-quite-a-journey/aksels-bad-luck.jpg" alt="Aksels @ unluck early May 2018" %}
 
@@ -96,14 +91,14 @@ users will be disappointed if I ship this.
 <br />
 The lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
 
-The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week) where you can work on personal projects. IMHO, 30min is too short, 1h is great, but it's too long, it mostly depends on your lifestyle.
+The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great but it's too long, it mostly depends on your lifestyle.
 
-Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands-on your computer. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
+Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands-on your computer right after your work day. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
 
 <br /><br />
 # Mobile application
 
-I've shown my app to some relatives, friends and either they didn't show any interest or they pretended some, but no one will ever use this website. The truth is that you don't go on a website when you are on the go. You launch an app, check next bus / tramway and then leave. You won't open your computer to check the journey for their daily commute.
+I've shown my app to some relatives, friends and either they didn't show any interest or they pretended some, but no one will ever use this website. The truth is that you don't go on a website when you are on the go. You launch an app, check next bus / tramway and then leave. You won't open your computer to check the journey for your daily commute.
 
 At some point <a href="https://nantes.cool" target="_blank">nantes.cool</a> was not enough. Don't even try at this point to make your users install your webapp on their phones.
 
@@ -180,13 +175,15 @@ And this is how I made my choice:
 - <b>expo</b> react-native but without the headache : ok, <u>that's the best choice</u>
 
 <br /><br />
-## After, we need to compute our journeys
+## After that, we need to compute our journeys
 
-Open Trip Planner seems to be the most popular solution. It:
+Open Trip Planner seems to be the most popular solution.
+
+It:
 
 - ✔️ has a documentation
 - ✔️ <a href="http://docs.opentripplanner.org/en/latest/Deployments/" target="_blank">seems to be used by many in production</a>
-- ✔️ is <a href="https://github.com/opentripplanner/OpenTripPlanner">open source</a>
+- ✔️ is <a href="https://github.com/opentripplanner/OpenTripPlanner" target="_blank">open source</a>
 - ￼❌ ￼is written in JAVA, but no one can be perfect after all
 - ￼❌ has many issues
 - ✔️ seems in active development
@@ -282,7 +279,7 @@ We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let
 
 <b>10.76 euros per month</b> after taxes for <b>3 VPS</b>. Suits our needs and it's only <b>13%</b> of our monthly GCP invoice.
 
-Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost effective. Furthermore, users don't care.
+Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost effective. Furthermore, users don't care. And remember you don't have a lot of time on your hands, it's not like you are doing daily or even weekly updates.
 
 <br /><br />
 # Why did it take so long?
@@ -312,7 +309,7 @@ Because it's something you want to actually ship, you try as much as possible to
 - reduce user clicks to its minimum
 - fast
 - secure
-- .. perfect !
+- .. splendid !
 
 There are some points you can't avoid (eg: security). There will be always room for improvement, but you have to deal with it. It's only a side project. Something I didn't do for this side project and I should have, is a MVP's roadmap. For my next project, even before prototyping something, I'll write a roadmap and launch it right after its completion.
 
@@ -320,7 +317,7 @@ There are some points you can't avoid (eg: security). There will be always room 
 ### No business opportunities
 
 This greatly depends on your altruism level.
-I could put some ads on the mobile app, but it would hide all your efforts on providing the best UX for your users.
+I could put some ads on the mobile app, but it would hide all my efforts on providing the best UX for the users.
 
 But personaly, I'll find a project interesting if it's technically challenging or with a great business opportunity.
 
@@ -329,7 +326,7 @@ But personaly, I'll find a project interesting if it's technically challenging o
 
 because public transportation are terrible here and you are way faster with your ES2.
 
-> they see me rolling
+{% include image.html path="taka-quite-a-journey/electric-scooter.jpg" path-detail="taka-quite-a-journey/electric-scooter.jpg" alt="My ES2 (electric scooter)" %}
 
 <br /><br /><br />
 
