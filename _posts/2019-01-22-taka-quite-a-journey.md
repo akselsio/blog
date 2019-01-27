@@ -2,8 +2,8 @@
 layout: post
 title: "Taka - Quite a journey"
 description: "A public transportation app for Nantes, France"
-preview: "kfc/logo.png"
-preview2x: "kfc/logo@2x.png"
+preview: "taka-quite-a-journey/taka-preview.png"
+preview2x: "taka-quite-a-journey/taka-preview.png"
 previewAlt: "TAKA Preview"
 tags: [poc, project, ios, android, react-native, expo]
 ---
