@@ -10,6 +10,7 @@ tags: [poc, project, ios, android, react-native, expo]
 
 # TL;DR
 <br />
+
 - A POC is not enough to ship a project, but actually the project will never be ready.
     Just ship it at some point.
 - A project without a business opportunity in mind is hard to work on.
@@ -312,7 +313,15 @@ Because it's something you want to actually ship, you try as much as possible to
 - secure
 - .. perfect !
 
-There are some points you can't avoid (eg: security).
+There are some points you can't avoid (eg: security). There will be always room for improvement but you have to deal with it. It's only a side project. Something I didn't do for this side project and I should have, is a MVP's roadmap. For my next project, even before prototyping something, I'll write a roadmap and launch it right afterways.
+
+<br /><br />
+### No business opportunities
+
+This greatly depends on your altruism level.
+I could put some ads on the mobile app, but it would hide all your efforts on providing the best UX for your users.
+
+But personaly, I'll find a project interesting if it's technically challenging or with a great business opportunity.
 
 <br /><br />
 # In the end, you don't even use your own app
