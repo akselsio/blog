@@ -73,7 +73,7 @@ and then you come back, your shaving cream exploded in your backpack and next da
 Days are passing and.. Oh, I was talking about a side-project right.. 
 
 
-You see the point ? It's easy to break your workflow and motivation.
+You see the point ? It's easy to break your workflow and motivation. It's all about keeping the momentum.
 
 <br />
 <div style="text-align:center;"><b><u>The fun part of developing this project ended up here.</u></b></div>
@@ -83,8 +83,7 @@ If the activity graph had a legend it would be:
 
 {% include image.html path="taka-quite-a-journey/activity-graph-fixed.png" path-detail="taka-quite-a-journey/activity-graph-fixed.png" alt="Activity graph" %}
 
-
-The fun part was looking how GTFS Server works, implementing a go API, bootstraping a vue web application. And then you ask yourself:
+The fun part was looking how a GTFS Server works, implementing a go API, bootstraping a vue web application. And then you ask yourself:
 
 ```
 can I communicate about this now ?
@@ -97,6 +96,9 @@ users will be disappointed if I ship this.
 <br />
 But in fact the lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
 
+The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week) where you can work on personal projects. IMHO, 30min is too short, 1h is great but it's too long, it mostly depends on your lifestyle. 
+
+Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands on your computer. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
 
 <br /><br />
 # Mobile application
@@ -122,16 +124,17 @@ Oh it is reponsive right, but 99.99% (if not 100%) of your users won't install y
 Actually I'm exagerrating they don't give up - mostly because we bring them a decent amount of income, but still we have to explain each time how to do it. But once they have it on the phone everything is alright, but it couldn't work for our project.
 
 <br /><br />
-# What are the other app alternatives ?
+## What are the other app alternatives ?
 
 Why are we even trying to create an app ?<br />
 To know how to get around Nantes you have two main options (on iPhone):
 
-> On Android there is NaonedBus app which is really great.
+> <small>On Android there is NaonedBus app which is really great.</small>
 
-### Google Maps
+### **Google Maps**
 
 Which doesn't work for public transportation in Nantes. It will offer you two choices:
+
 - get an uber ride
 - walk by foot
 
@@ -150,14 +153,14 @@ It may seem a little bit harsh but:
 
 The only thing that prevents user from uninstalling this app is that it allows you to buy dematerialized tickets.
 
-# Native app development
+<br /><br />
+# Development adventures
+## Cross-platform mobile app
 
-
-### Cross-Platform 
-
-We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : NaonedBus. It's clean, it works and it has 10 years of development behind it. It's written in Java, no chance to get it on iOS anytime soon.
+We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS anytime soon.
 
 So I heard you wanted to create a cross-platform native app, choose between:
+
 - react-native
 - flutter
 - xamarin
@@ -174,12 +177,25 @@ And this is how I made my choice:
 - <b>NativeScript</b> I don't like Angular
 - <b>expo</b> react-native but without the headache : ok, <u>that's the best choice</u>
 
-## We need a Geocoding API
+<br /><br />
+## After, we need to compute our journeys
+
+Open Trip Planner seems to be the most popular solution. It:
+
+- ✔️ has a documentation
+- ✔️ <a href="http://docs.opentripplanner.org/en/latest/Deployments/" target="_blank">seems to be used by many in production</a>
+- ✔️ is <a href="https://github.com/opentripplanner/OpenTripPlanner">open source</a>
+- ￼❌ ￼is written in JAVA, but no one can be perfect after all
+- ￼❌ has many issues
+- ✔️ seems in active development
+
+
+<br /><br />
+## Next, we need a Geocoding API
 
 When the users search for an address we need to translate it in coordinates.
 
 {% include image.html path="taka-quite-a-journey/location-search.gif" path-detail="taka-quite-a-journey/location-search.gif" alt="Location search illustration" %}
-
 
 ### Google API
 
@@ -206,7 +222,6 @@ Google Maps/Google Earth;
 
 It is even better in our use case. But they look quite <small><small>a lot</small></small> the same, agreed.
 
-
 We <u>cannot</u> use Google API's in our project.
 
 <br /><br />
@@ -223,6 +238,7 @@ And it has the <a href="https://community.algolia.com/places/" target="_blank">A
 - search for an address and get it's position
 - reverse geocoding
 
+<br />
 <div style="text-align:center;"><b>Solution solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
 
 <br /><br />
@@ -258,13 +274,13 @@ That's <b>1.24 euros per visit of load balancing</b>. Worth it.
 
 Now that you wasted a lot of money, you search for a cheaper alternative.
 
-We have 1 API, one GTFS Server, one server which only serves the front end.<br />Let's be confortable, just take one VPS for each.
+We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let's be confortable, just take one VPS for each.
 
 {% include image.html path="taka-quite-a-journey/ovh-quote.png" path-detail="taka-quite-a-journey/ovh-quote.png" alt="OVH is cheap for side projects" %}
 
 <b>10.76 euros per month</b> after taxes for <b>3 VPS</b>. Suits our needs and it's only <b>13%</b> of our monthly GCP invoice.
 
-Yes you need to log each time to your VPS to upgrade, but it works and it's really cost effective. Furthermore, users don't care.
+Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost effective. Furthermore, users don't care.
 
 <br /><br />
 # Why did it take so long?
@@ -278,17 +294,18 @@ Yes you need to log each time to your VPS to upgrade, but it works and it's real
 Beautiful isn't it ?
 </div>
 
+<br />
 We are here:
-
 {% include image.html path="taka-quite-a-journey/taka-activity-first-poc.png" path-detail="taka-quite-a-journey/taka-activity-first-poc.png" alt="TAKA activity graph" %}
 
 What happened during the following months ? Oh yes, absolutly nothing.
-Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another projects and they are way more interesting than finishing this.
+Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another cool projects and they are way more interesting than finishing this.
 
 <br /><br />
 ### Small tweaks take a lot of time
 
 Because it's something you want to actually ship, you try as much as possible to make it:
+
 - pixel perfect
 - reduce user clicks to its minimum
 - fast
@@ -306,9 +323,7 @@ because public transportation are terrible here and you are way faster with your
 
 <br /><br /><br />
 
-
 # FAQ
 
 Why nantes.cool ?<br />
 Because it's easy to remember: it has the city in the domain and it's a cool app.
-
