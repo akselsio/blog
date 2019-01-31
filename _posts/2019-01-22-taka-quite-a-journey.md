@@ -21,6 +21,8 @@ tags: [poc, project, ios, android, react-native, expo, go]
 # How it started
 <br />
 
+I'm the kind of guy that have a ton of side projects ideas. Which range from far too ambitious to pointless.
+
 During a late April 2017 lunch I was complaining about Google Maps which doesn't work in Nantes and that the TAN application is terrible and I told my coworkers:
 
 ```
