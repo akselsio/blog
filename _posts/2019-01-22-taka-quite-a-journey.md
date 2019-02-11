@@ -80,7 +80,7 @@ If the Github's activity graph had a legend it would be:
 
 {% include image.html path="taka-quite-a-journey/activity-graph-fixed.png" path-detail="taka-quite-a-journey/activity-graph-fixed.png" alt="Activity graph" %}
 
-The fun part was looking how a GTFS Server works, implementing a Go API, bootstraping a vue web application. And then you ask yourself:
+The fun part was looking how a GTFS Server works, implementing a Go API, bootstraping a Vue web application. And then you ask yourself:
 
 ```
 can I communicate about this now ?
@@ -127,8 +127,6 @@ Actually I'm exaggerating they don't give up - mostly because we bring them a de
 
 Why are we even trying to create an app ?<br />
 To know how to get around Nantes you have two main options (on iPhone):
-
-> <small>On Android there is NaonedBus app, which is really great.</small>
 
 ### **Google Maps**
 
@@ -200,7 +198,11 @@ When the users search for an address we need to translate it in coordinates.
 
 ### Google API
 
-Let's read the <a href="https://www.google.com/intl/fr_US/help/terms_maps.html" target="_blank">TOS of Google's APIs</a>.<br />Just kidding, here the part which interest us:
+Let's read the <a href="https://www.google.com/intl/fr_US/help/terms_maps.html" target="_blank">TOS of Google's APIs</a>.
+
+{% include image.html path="taka-quite-a-journey/tos.gif" path-detail="taka-quite-a-journey/tos.gif" alt="Google TOS scrolling" %}
+
+Just kidding, here the part which interest us:
 
 ```
 2. Prohibited Conduct. When using Google Maps/Google Earth,
@@ -239,6 +241,9 @@ And it has the <a href="https://community.algolia.com/places/" target="_blank">A
 - search for an address and get it's position
 - reverse geocoding
 
+The free tier is not that awesome, I just hope users won't search that many places and will use the shortcuts feature. It could be quite expensive (40 cents per 1000 requests).
+
+
 <br />
 <div style="text-align:center;"><b>Solution solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
 
@@ -253,7 +258,7 @@ I've talked about free tier right ?
 
 {% include image.html path="taka-quite-a-journey/gcp-outch.png" path-detail="taka-quite-a-journey/gcp-outch.png" alt="GCP is expensive" %}
 
-Oh yeah, that's <b>330 euros</b> from your pocket only for having a fancy orchestration for your side project. But at least you know how to do handle apps over Kubernetes and you made it to your day-to-day work and that's something.
+Oh yeah, that's <b>330 euros</b> from your pocket only for having a fancy orchestration for your side project. But at least you know how to handle apps over Kubernetes and you made it to your day-to-day work and that's something.
 
 In that price is included GCP Load balancer (ingress):
 
@@ -275,11 +280,13 @@ That's <b>1.24 euros per visit of load balancing</b>. Worth it.
 
 Now that you wasted a lot of money, you search for a cheaper alternative.
 
-We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let's be comfortable, just take one VPS for each.
+We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let's be comfortable, just take one VPS for our API and our front and one VPS for our GTFS Server.
+
+Remember that our GTFS server (OpenTripPlanner) is written in Java. It takes space.
 
 {% include image.html path="taka-quite-a-journey/ovh-quote.png" path-detail="taka-quite-a-journey/ovh-quote.png" alt="OVH is cheap for side projects" %}
 
-<b>10.76 euros per month</b> after taxes for <b>3 VPS</b>. Suits our needs and it's only <b>13%</b> of our monthly GCP invoice.
+<b>5.98 euros per month</b> after taxes for <b>2 VPS</b>. Suits our needs and it's only <b>7%</b> of our monthly GCP invoice.
 
 Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost effective. Furthermore, users don't care. And remember you don't have a lot of time on your hands, it's not like you are doing daily or even weekly updates.
 
@@ -321,7 +328,35 @@ There are some points you can't avoid (eg: security). There will be always room 
 This greatly depends on your altruism level.
 I could put some ads on the mobile app, but it would hide all my efforts on providing the best UX for the users.
 
-But personaly, I'll find a project interesting if it's technically challenging or with a great business opportunity.
+But personally, I'll find a project interesting if it's technically challenging or with a great business opportunity.
+
+
+<br /><br />
+### You start an article about your app
+
+... but you still haven't finished it.
+
+
+<br /><br />
+# D-Day
+
+Everything seems alright, your app seems ready. You can now submit it to the App Store.
+
+{% include image.html path="taka-quite-a-journey/launch.gif" path-detail="taka-quite-a-journey/launch.gif" alt="Archer - Go for it" %}
+
+
+Eventually you get rejected,
+
+< TODO picture >
+
+{% include image.html path="taka-quite-a-journey/rejected.gif" path-detail="taka-quite-a-journey/rejected.gif" alt="Archer - rejected" %}
+
+You remove the word Android from your application, you explain to your users why you need their location, you submit it again.
+
+And less than 12h after, your app has been approved.
+
+{% include image.html path="taka-quite-a-journey/appstore-approved.png" path-detail="taka-quite-a-journey/appstore-approved.png" alt="Appstore approved it" %}
+
 
 <br /><br />
 # In the end, you don't even use your own app
