@@ -12,8 +12,8 @@ tags: [poc, project, ios, android, react-native, expo, go]
 <br />
 
 - A POC is not enough to ship a project, but actually the project will never be ready.
-    Just ship it at some point.
-- A project without a business opportunity in mind is hard to work on.
+    Just ship it at some point
+- A project without a business opportunity in mind is hard to work on
 - I spent a lot of money and time, but I have learned a lot - no ragrets
 - Procrastination is terrible
 
@@ -42,8 +42,8 @@ with a decent architecture orchestrated on GCP Kubernetes.
 {% include image.html path="taka-quite-a-journey/first-architecture.png" path-detail="taka-quite-a-journey/first-architecture.png" alt="Archicture" %}
 
 <br /><br />
-Why Google Cloud Platform ?<br />
-You have 300$ credit as a welcoming gift from Google to try it out. Perfect for a side project, isn't it ?
+Why Google Cloud Platform?<br />
+You have 300$ credit as a welcoming gift from Google to try it out. Perfect for a side project, isn't it?
 
 {% include image.html path="taka-quite-a-journey/google-free-tier.png" path-detail="taka-quite-a-journey/google-free-tier.png" alt="Google Free Tier" %}
 
@@ -56,11 +56,15 @@ However, a week later you take an AIR France plane (delayed, but you are getting
 
 {% include image.html path="taka-quite-a-journey/aksels-singapore.jpg" path-detail="taka-quite-a-journey/aksels-singapore.jpg" alt="Aksels @ Singapore early May 2018" %}
 
-..and you go with them in Vietnam, Cambodia and Thailand for a couple of weeks and take a classic selfie of someone who grew up in Brittany..
+..and you ride next to paddy fields in Vietnam..
 
-{% include image.html path="taka-quite-a-journey/aksels-vietnam-bretagne.jpg" path-detail="taka-quite-a-journey/aksels-vietnam-bretagne.jpg" alt="Aksels @ Vietnam early May 2018" %}
+{% include image.html path="taka-quite-a-journey/aksels-vietnam.jpg" path-detail="taka-quite-a-journey/aksels-vietnam.jpg" alt="Aksels @ Vietnam early May 2018" %}
 
-..and then you come back, your shaving cream exploded in your backpack and next day you go back to work and catch up on everything you missed.
+..and you go with them in Cambodia and Thailand for a couple of weeks. Finally you wait your flight back home, being more tired than at the beginning of the holidays..
+
+{% include image.html path="taka-quite-a-journey/aksels-thailand.jpg" path-detail="taka-quite-a-journey/aksels-thailand.jpg" alt="Aksels @ Thailand early May 2018" %}
+
+..and then you come back to home, your shaving cream exploded in your backpack and next day you go back to work and catch up on everything you missed.
 
 {% include image.html path="taka-quite-a-journey/aksels-bad-luck.jpg" path-detail="taka-quite-a-journey/aksels-bad-luck.jpg" alt="Aksels @ unluck early May 2018" %}
 
@@ -70,7 +74,7 @@ However, a week later you take an AIR France plane (delayed, but you are getting
 
 Days are passing and.. Oh, I was talking about a side-project right..
 
-You see the point ? It's easy to break your workflow and motivation. It's all about keeping the momentum.
+You see the point? It's easy to break your workflow and motivation. It's all about keeping the momentum.
 
 <br />
 <div style="text-align:center;"><b><u>The fun part of developing this project ended up here.</u></b></div>
@@ -83,8 +87,8 @@ I mean, if the Github's activity graph had a legend it would be:
 The fun part was looking how a GTFS Server works, implementing a Go API, bootstraping a Vue web application. And then you ask yourself:
 
 ```
-can I communicate about this now ?
-or is this too early ?
+Can I communicate about this now?
+or is this too early?
 
 There are so many things I could improve,
 users will be disappointed if I ship this.
@@ -93,7 +97,7 @@ users will be disappointed if I ship this.
 <br />
 The lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
 
-The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week or even per month) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great but it's too long, it mostly depends on your lifestyle.
+The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week or even per month) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great, but it's too long, it mostly depends on your lifestyle.
 
 Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands-on your computer right after your work day. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
 
@@ -123,9 +127,9 @@ Oh it is responsive right, but 99.99% (if not 100%) of your users won't install 
 Actually I'm exaggerating they don't give up - mostly because we bring them a decent amount of income, but still we have to explain each time how to do it. However, once they have it on the phone everything is alright, but it couldn't work for our project.
 
 <br /><br />
-## What are the other app alternatives ?
+## What are the other app alternatives?
 
-Why are we even trying to create an app ?<br />
+Why are we even trying to create an app?<br />
 To know how to get around Nantes you have two main options (on iPhone):
 
 ### **Google Maps**
@@ -154,7 +158,7 @@ The only thing that prevents user from uninstalling this app is that it allows y
 # Development adventures
 ## Cross-platform mobile app
 
-We need a cross-platform app because Android users have a wonderful unofficial-app for public transportations : NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS any time soon.
+We need a cross-platform app because Android users have a wonderful unofficial-app for public transportation : NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS any time soon.
 
 So, I heard you wanted to create a cross-platform native app, choose between:
 
@@ -202,7 +206,7 @@ Let's read the <a href="https://www.google.com/intl/fr_US/help/terms_maps.html" 
 
 {% include image.html path="taka-quite-a-journey/tos.gif" path-detail="taka-quite-a-journey/tos.gif" alt="Google TOS scrolling" %}
 
-Just kidding, here the part which interest us:
+Just kidding, here the part which interests us:
 
 ```
 2. Prohibited Conduct. When using Google Maps/Google Earth,
@@ -248,11 +252,11 @@ The free tier is not that awesome, I just hope users won't search that many plac
 <div style="text-align:center;"><b>Solution solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
 
 <br /><br />
-## Where should I deploy it ?
+## Where should I deploy it?
 
 ### Google Cloud Platform
 
-I've talked about free tier right ?
+I've talked about free tier right?
 
 7 months of procrastination later..
 
@@ -265,7 +269,7 @@ In that price is included GCP Load balancer (ingress):
 {% include image.html path="taka-quite-a-journey/google-loadbalancing.png" path-detail="taka-quite-a-journey/google-loadbalancing.png" alt="GCP is very expensive" %}
 
 Yes, <b>127 euros</b> for forwarding your requests.<br />
-How many users ? Let's ask Google Analytics:
+How many users? Let's ask Google Analytics:
 
 {% include image.html path="taka-quite-a-journey/google-analytics-2018.png" path-detail="taka-quite-a-journey/google-analytics-2018.png" alt="GCP is very very expensive" %}
 
@@ -288,7 +292,7 @@ Remember that our GTFS server (OpenTripPlanner) is written in Java. It takes spa
 
 <b>5.98 euros per month</b> before taxes for <b>2 VPS</b>. Suits our needs and it's only <b>7%</b> of our monthly GCP invoice.
 
-Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost effective. Furthermore, users don't care. And remember you don't have a lot of time on your hands, it's not like you are doing daily or even weekly updates.
+Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost-effective. Furthermore, users don't care. And remember you don't have a lot of time on your hands, it's not like you are doing daily or even weekly updates.
 
 <br /><br />
 # Why did it take so long?
@@ -302,13 +306,13 @@ We are here:
 {% include image.html path="taka-quite-a-journey/taka-mobile-app-first-release.png" path-detail="taka-quite-a-journey/taka-mobile-app-first-release.png" alt="Taka mobile app first release" %}
 
 <div style="text-align:center;">
-Beautiful isn't it ?
+Beautiful isn't it?
 </div>
 
 <br />
 
-What happened during the following months ? Oh yes, absolutly nothing.
-Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another cool projects and they are way more interesting than finishing this.
+What happened during the following months? Oh yes, absolutely nothing.
+Why? Because your app works, but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another cool projects and they are way more interesting than finishing this.
 
 <br /><br />
 ### Small tweaks take a lot of time
@@ -351,11 +355,13 @@ Everything seems alright, your app seems ready. There is even some gradient back
 
 Eventually you get rejected,
 
-< TODO picture >
+{% include image.html path="taka-quite-a-journey/rejected-1.png" path-detail="taka-quite-a-journey/rejected-1.png" alt="Rejected" %}
+{% include image.html path="taka-quite-a-journey/rejected-2.png" path-detail="taka-quite-a-journey/rejected-2.png" alt="Rejected" %}
+{% include image.html path="taka-quite-a-journey/rejected-3.png" path-detail="taka-quite-a-journey/rejected-3.png" alt="Rejected" %}
 
 {% include image.html path="taka-quite-a-journey/rejected.gif" path-detail="taka-quite-a-journey/rejected.gif" alt="Archer - rejected" %}
 
-You remove the word Android from your application, you explain to your users why you need their location even if it seems obvious, you submit it again.
+You <a href="https://github.com/TakaApp/mobile-application/commit/fa9ae84a261e54b1b4dbe44e1d3e06037f7a494e" target="_blank">remove the word Android</a> from your application, <a href="https://github.com/TakaApp/mobile-application/commit/69bf3cdab75db402ac184ccc6914394a268b3e53" target="_blank">you explain</a> to your users why you need their location even if it seems obvious, you submit it again.
 
 And less than 12h after, your app has been approved.
 
@@ -385,5 +391,5 @@ because public transportation are terrible here and you are way faster with your
 
 # FAQ
 
-Why nantes.cool ?<br />
+Why nantes.cool?<br />
 Because it's easy to remember: it has the city in the domain and it's a cool app.
