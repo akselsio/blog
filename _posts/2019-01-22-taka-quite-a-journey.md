@@ -15,7 +15,7 @@ tags: [poc, project, ios, android, react-native, expo, go]
     Just ship it at some point.
 - A project without a business opportunity in mind is hard to work on.
 - I spent a lot of money and time, but I have learned a lot - no ragrets
-- Procrastination sucks
+- Procrastination is terrible
 
 <br /><br />
 # How it started
@@ -43,7 +43,7 @@ with a decent architecture orchestrated on GCP Kubernetes.
 
 <br /><br />
 Why Google Cloud Platform ?<br />
-You have 300$ credit as a welcoming gift from Google to try it out. Perfect for a side project.
+You have 300$ credit as a welcoming gift from Google to try it out. Perfect for a side project, isn't it ?
 
 {% include image.html path="taka-quite-a-journey/google-free-tier.png" path-detail="taka-quite-a-journey/google-free-tier.png" alt="Google Free Tier" %}
 
@@ -76,7 +76,7 @@ You see the point ? It's easy to break your workflow and motivation. It's all ab
 <div style="text-align:center;"><b><u>The fun part of developing this project ended up here.</u></b></div>
 {% include image.html path="taka-quite-a-journey/fun-ended-here.png" path-detail="taka-quite-a-journey/fun-ended-here.png" alt="Where is the fun part" %}
 
-If the Github's activity graph had a legend it would be:
+I mean, if the Github's activity graph had a legend it would be:
 
 {% include image.html path="taka-quite-a-journey/activity-graph-fixed.png" path-detail="taka-quite-a-journey/activity-graph-fixed.png" alt="Activity graph" %}
 
@@ -93,7 +93,7 @@ users will be disappointed if I ship this.
 <br />
 The lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
 
-The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great but it's too long, it mostly depends on your lifestyle.
+The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week or even per month) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great but it's too long, it mostly depends on your lifestyle.
 
 Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands-on your computer right after your work day. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
 
@@ -132,8 +132,8 @@ To know how to get around Nantes you have two main options (on iPhone):
 
 Which doesn't work for public transportation in Nantes. It will offer you two choices:
 
-- get an uber ride
 - walk by foot
+- get an Uber ride
 
 {% include image.html path="taka-quite-a-journey/google.jpg" path-detail="taka-quite-a-journey/google.jpg" alt="Google Maps." %}
 
@@ -225,7 +225,7 @@ Google Maps/Google Earth;
 
 It is even better in our use case. But they look quite <small><small>a lot</small></small> the same, agreed.
 
-We <u>cannot</u> use Google API's in our project.
+We <u>cannot</u> use Google APIs in our project.
 
 <br /><br />
 ### Alternative: Algolia
@@ -280,13 +280,13 @@ That's <b>1.24 euros per visit of load balancing</b>. Worth it.
 
 Now that you wasted a lot of money, you search for a cheaper alternative.
 
-We have 1 API, 1 GTFS Server, 1 server which only serves the front end.<br />Let's be comfortable, just take one VPS for our API and our front and one VPS for our GTFS Server.
+We have 1 API, 1 GTFS Server and 1 server which only serves the front end.<br />Let's be comfortable, just take one VPS for our API and our front-end and one VPS for our GTFS Server.
 
 Remember that our GTFS server (OpenTripPlanner) is written in Java. It takes space.
 
 {% include image.html path="taka-quite-a-journey/ovh-quote.png" path-detail="taka-quite-a-journey/ovh-quote.png" alt="OVH is cheap for side projects" %}
 
-<b>5.98 euros per month</b> after taxes for <b>2 VPS</b>. Suits our needs and it's only <b>7%</b> of our monthly GCP invoice.
+<b>5.98 euros per month</b> before taxes for <b>2 VPS</b>. Suits our needs and it's only <b>7%</b> of our monthly GCP invoice.
 
 Yes you need to log each time to your VPS to upgrade your docker images, but it works and it's really cost effective. Furthermore, users don't care. And remember you don't have a lot of time on your hands, it's not like you are doing daily or even weekly updates.
 
@@ -294,6 +294,9 @@ Yes you need to log each time to your VPS to upgrade your docker images, but it 
 # Why did it take so long?
 <br /><br />
 ### You are probably not a designer
+
+We are here:
+{% include image.html path="taka-quite-a-journey/taka-activity-first-poc.png" path-detail="taka-quite-a-journey/taka-activity-first-poc.png" alt="TAKA activity graph" %}
 
 <br />
 {% include image.html path="taka-quite-a-journey/taka-mobile-app-first-release.png" path-detail="taka-quite-a-journey/taka-mobile-app-first-release.png" alt="Taka mobile app first release" %}
@@ -303,8 +306,6 @@ Beautiful isn't it ?
 </div>
 
 <br />
-We are here:
-{% include image.html path="taka-quite-a-journey/taka-activity-first-poc.png" path-detail="taka-quite-a-journey/taka-activity-first-poc.png" alt="TAKA activity graph" %}
 
 What happened during the following months ? Oh yes, absolutly nothing.
 Why ? Because your app works but it is ugly AF but in the same time you don't want to spend to much time on design because... you are not a designer and it's not something you like that much. In the meantime you started a bunch of another cool projects and they are way more interesting than finishing this.
@@ -328,7 +329,7 @@ There are some points you can't avoid (eg: security). There will be always room 
 This greatly depends on your altruism level.
 I could put some ads on the mobile app, but it would hide all my efforts on providing the best UX for the users.
 
-But personally, I'll find a project interesting if it's technically challenging or with a great business opportunity.
+Personally, I'll find a project interesting if it's technically challenging or with a great business opportunity.
 
 
 <br /><br />
@@ -340,7 +341,10 @@ But personally, I'll find a project interesting if it's technically challenging 
 <br /><br />
 # D-Day
 
-Everything seems alright, your app seems ready. You can now submit it to the App Store.
+<br />
+{% include image.html path="taka-quite-a-journey/last-design.png" path-detail="taka-quite-a-journey/last-design.png" alt="last release (early 2019)" %}
+
+Everything seems alright, your app seems ready. There is even some gradient backgrounds, it's fancy. You can now submit it to the App Store.
 
 {% include image.html path="taka-quite-a-journey/launch.gif" path-detail="taka-quite-a-journey/launch.gif" alt="Archer - Go for it" %}
 
@@ -351,7 +355,7 @@ Eventually you get rejected,
 
 {% include image.html path="taka-quite-a-journey/rejected.gif" path-detail="taka-quite-a-journey/rejected.gif" alt="Archer - rejected" %}
 
-You remove the word Android from your application, you explain to your users why you need their location, you submit it again.
+You remove the word Android from your application, you explain to your users why you need their location even if it seems obvious, you submit it again.
 
 And less than 12h after, your app has been approved.
 
@@ -364,6 +368,18 @@ And less than 12h after, your app has been approved.
 because public transportation are terrible here and you are way faster with your ES2.
 
 {% include image.html path="taka-quite-a-journey/electric-scooter.jpg" path-detail="taka-quite-a-journey/electric-scooter.jpg" alt="My ES2 (electric scooter)" %}
+
+<br /><br />
+# But eventually people like it a lot
+
+{% include image.html path="taka-quite-a-journey/appstore.png" path-detail="taka-quite-a-journey/appstore.png" alt="App Store" %}
+
+{% include image.html path="taka-quite-a-journey/average-review.png" path-detail="taka-quite-a-journey/average-review.png" alt="App Store review" %}
+
+
+<br />
+<div style="text-align:center;"><b>And that's a great reward. ヾ(⌐■_■)ノ♪</b></div>
+
 
 <br /><br /><br />
 
