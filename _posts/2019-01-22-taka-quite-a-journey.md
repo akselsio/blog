@@ -249,7 +249,7 @@ The free tier is not that awesome, I just hope users won't search that many plac
 
 
 <br />
-<div style="text-align:center;"><b>Solution solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
+<div style="text-align:center;"><b>Problem solved for our geocoding needs. (☞ﾟ∀ﾟ)☞</b></div>
 
 <br /><br />
 ## Where should I deploy it?
