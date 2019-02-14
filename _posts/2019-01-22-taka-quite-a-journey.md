@@ -158,7 +158,7 @@ The only thing that prevents user from uninstalling this app is that it allows y
 # Development adventures
 ## Cross-platform mobile app
 
-We need a cross-platform app because Android users have a wonderful unofficial-app for public transportation : NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS any time soon.
+We need a cross-platform app because Android users have a wonderful unofficial-app for public transportation: NaonedBus. It's clean, it works and it has 10 years of development behind it. But it's written in Java, no chance to get it on iOS any time soon.
 
 So, I heard you wanted to create a cross-platform native app, choose between:
 
@@ -176,7 +176,7 @@ And this is how I made my choice:
 - <b>xamarin</b> .NET, I pass
 - <b>ionic and cie</b> I don't want my website in a webview
 - <b>NativeScript</b> I don't like Angular
-- <b>expo</b> react-native but without the headache : ok, <u>that's the best choice</u>
+- <b>expo</b> react-native but without the headache: ok, <u>that's the best choice</u>
 
 <br /><br />
 ## After that, we need to compute our journeys
