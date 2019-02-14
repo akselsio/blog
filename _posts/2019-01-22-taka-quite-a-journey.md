@@ -97,7 +97,7 @@ users will be disappointed if I ship this.
 <br />
 The lesson I learned from this side project it's that you won't have enough time. That's your day-to-day job to ship perfect things, but you have 10 hours a day you can dedicate to improve your product. On the other hand, your side project which certainly doesn't have a bright future will not bring enough motivation to work on.
 
-The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week or even per month) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great, but it's too long, it mostly depends on your lifestyle.
+The most effective thing to do is to set on your calendar a 45min window each day (or a few days per week or even per month) where you can work on personal projects. IMHO, 30min is too short, meanwhile 1h is great but it's too long, it mostly depends on your lifestyle.
 
 Also, forget your long coding sessions after work once you've moved in with someone. You won't be able to eat something quickly and get your hands-on your computer right after your work day. I can't imagine when you have a baby home, maybe the key is to get up before everyone else and find your time window during their sleeps.
 
