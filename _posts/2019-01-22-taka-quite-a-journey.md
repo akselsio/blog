@@ -242,7 +242,7 @@ It has a free plan designed especially for our type of project:
 
 And it has the <a href="https://community.algolia.com/places/" target="_blank">Algolia Places API</a> and it does everything we need:
 
-- search for an address and get it's position
+- search for an address and get its position
 - reverse geocoding
 
 The free tier is not that awesome, I just hope users won't search that many places and will use the shortcuts feature. It could be quite expensive (40 cents per 1000 requests).
