@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>aksels.io | Raspberry Pi email LED notifier</title>
+  <meta name="description" content="Create a Raspberry email LED notifier in less than 30 minutes.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Raspberry Pi email LED notifier">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://aksels.io//posts/raspberry-pi-email-notification">
+  <meta property="og:description" content="Create a Raspberry email LED notifier in less than 30 minutes.">
+  <meta property="og:site_name" content="aksels.io">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://aksels.io//posts/raspberry-pi-email-notification">
+  <meta name="twitter:title" content="Raspberry Pi email LED notifier">
+  <meta name="twitter:description" content="Create a Raspberry email LED notifier in less than 30 minutes.">
+
+  
+    <meta property="og:image" content="http://aksels.io//assets/images/og-image-e0267d2ca97a365674cea02986fb727242a5c6f726f5f4bb8429cf6309a1e2e7.png">
+    <meta name="twitter:image" content="http://aksels.io//assets/images/og-image-e0267d2ca97a365674cea02986fb727242a5c6f726f5f4bb8429cf6309a1e2e7.png">
+  
+
+  <link href="http://aksels.io//feed.xml" type="application/rss+xml" rel="alternate" title="aksels.io Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/images/favicon-e1810e55450cd7b7c084c120c3ceb174127d8bf99422206d52f0f1483efb363b.ico">
+      <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-c3e2522a554b073723f78d15a3bbe4f733e5fbc47d17ddd75507d501952ce40b.png">
+      <link rel="stylesheet" type="text/css" href="/assets/stylesheets/light-5c5120be982c73be33337d6874234b0f1134870c5708299e30f63c995a9db4dd.css">
+    
+
+  
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="aksels.io">aksels.io</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/AkselsLedins" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/icons/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter" xlink:href="/assets/icons/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/AkselsLedins" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/icons/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/icons/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/akselsledins" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/icons/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/icons/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://www.flickr.com/photos/aksels" rel="noreferrer noopener" target="_blank" title="Flickr">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-flickr">
+  <use href="/assets/icons/flickr-73bf82174abba7ac782ff99680b6fd93b89ac52518e1e19cc641068909cfe114.svg#icon-flickr" xlink:href="/assets/icons/flickr-73bf82174abba7ac782ff99680b6fd93b89ac52518e1e19cc641068909cfe114.svg#icon-flickr"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://instagram.com/aksels.ledins" rel="noreferrer noopener" target="_blank" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-instagram">
+  <use href="/assets/icons/instagram-37f85bc75b43ecc4c114d9a46f846327fe13c5893787c6afbcfef9d30d58bd9e.svg#icon-instagram" xlink:href="/assets/icons/instagram-37f85bc75b43ecc4c114d9a46f846327fe13c5893787c6afbcfef9d30d58bd9e.svg#icon-instagram"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:aksels.ledins@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/icons/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/icons/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+  </ul>
+</nav>
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Raspberry Pi email LED notifier</h1>
+            <p>Create a Raspberry email LED notifier in less than 30 minutes.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                December 29, 2016
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  9 min. read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/node">node</a>
+                
+                  <a href="/tag/raspberrypi">raspberrypi</a>
+                
+                  <a href="/tag/js">js</a>
+                
+                  <a href="/tag/email">email</a>
+                
+                  <a href="/tag/diy">diy</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h1 id="what-do-you-need">What do you need?</h1>
+
+<ul>
+  <li>x1 breadboard</li>
+  <li>x2 jumper (wire) (male/female)</li>
+  <li>x1 led</li>
+  <li>x1 330Ω resistor</li>
+  <li>x1 Raspberry Pi (v3 preferred)</li>
+</ul>
+
+<table>
+  <td style="width: 50%">
+    <a href="/assets/images/raspberry/breadboard@2x-1162404c968d89b16e3906ac219b38d7e3f8db50e1e328cfc6805ab40e62aba1.jpg">
+      <img src="/assets/images/raspberry/breadboard-94d7cd7d495db84c8365b7d8d3acffa38af211634e7f7f6fca6b755041a4e670.jpg" alt="" class="zooming" data-rjs="/assets/images/raspberry/breadboard@2x-1162404c968d89b16e3906ac219b38d7e3f8db50e1e328cfc6805ab40e62aba1.jpg" data-zooming-width="" data-zooming-height="" />
+    </a>
+  </td>
+  <td style="width: 50%">
+      <a href="/assets/images/raspberry/jumpers@2x-bb52ec0e8e60f920c9d2d243006215eef425870ef723aa20563b9d5b0e908395.jpg">
+      <img src="/assets/images/raspberry/jumpers-5bc2421a6117bda608a5ad98d6649e269120bac6c89314290c0a8cd7a5fff18d.jpg" alt="" class="zooming" data-rjs="/assets/images/raspberry/jumpers@2x-bb52ec0e8e60f920c9d2d243006215eef425870ef723aa20563b9d5b0e908395.jpg" data-zooming-width="" data-zooming-height="" />
+    </a>    
+  </td>
+</table>
+
+<table>
+  <td style="width: 50%">
+    <a href="/assets/images/raspberry/led@2x-563ab9cd285e5eacd6fb021a59f0c6e35d475a7ba3aa28bdfb5d26f119a607bf.jpg">
+      <img src="/assets/images/raspberry/led-4b9cecc8b5a435f6e710eae379c74b5e2966f48e4acf7aca5576e83a252af033.jpg" alt="" class="zooming" data-rjs="/assets/images/raspberry/led@2x-563ab9cd285e5eacd6fb021a59f0c6e35d475a7ba3aa28bdfb5d26f119a607bf.jpg" data-zooming-width="" data-zooming-height="" />
+    </a>
+  </td>
+  <td style="width: 50%">
+      <a href="/assets/images/raspberry/resistor@2x-419424544240007ae5c932ffb6be977392d10b583f3b754ba5f26e12e621fe55.jpg">
+      <img src="/assets/images/raspberry/resistor-c1404a53710a21f54db1b595e58865e5839b93e825d9d251f692a52e378a837a.jpg" alt="" class="zooming" data-rjs="/assets/images/raspberry/resistor@2x-419424544240007ae5c932ffb6be977392d10b583f3b754ba5f26e12e621fe55.jpg" data-zooming-width="" data-zooming-height="" />
+    </a>    
+  </td>
+</table>
+
+<hr />
+<p><br /></p>
+<h1 id="hardware-setup">Hardware setup</h1>
+
+<blockquote>
+  <p><small><strong>warning</strong>: don’t plug your Raspberry in.</small></p>
+</blockquote>
+
+<h6 id="the-breadboard">The breadboard</h6>
+<p>Little explanation on how a breadboard works.</p>
+
+<p><a>
+  <img src="/assets/images/raspberry-pi-email-notification/breadboard_empty-da97f51d257edf1bfd1e84ffa24e36de5c3cfa13960f41eba264c9e229f6e1f7.png" alt="breadboard" class="zooming" data-rjs="/assets/images/raspberry-pi-email-notification/breadboard_empty@2x-1fac9fc2422dc5cd5b7cee4acc7ac18dd5657c6e0c3adaf1bb89be95420ec01a.png" data-zooming-width="" data-zooming-height="" />
+</a></p>
+
+<p>Actually it’s quite simple. Usually there are four rows, two negative and two positive and a bunch of columns.
+All the holes in a row are connected, same for the rows.</p>
+
+<p>Easy.</p>
+
+<h6 id="setting-up-your-circuit">Setting up your circuit</h6>
+
+<p><br />
+<a>
+  <img src="/assets/images/raspberry-pi-email-notification/breadboard_pi_led-628102c3f0a1c9cc0ee50ca15c0a9f006cb74ab51c8f5fbe61ac001a1f0da5b3.png" alt="Our set up" class="zooming" data-rjs="/assets/images/raspberry-pi-email-notification/breadboard_pi_led@2x-25289239d9854ee09d98d3ae148482a092e10fe1f37f19f84523f49a0b27cab3.png" data-zooming-width="" data-zooming-height="" />
+</a></p>
+
+<p><br />
+I advise you at first to follow my schema and then experiment by yourself. <br />
+Don’t connect anything for the moment to the Raspberry.
+<br /></p>
+
+<ul>
+  <li><strong>red jumper:</strong> to a random column</li>
+  <li><strong>blue jumper:</strong> to a <strong>(-)</strong> row</li>
+  <li><strong>resistor:</strong> to the same <strong>(-)</strong> row where we connected our blue jumper and to a column <em>(direction does not matter)</em></li>
+  <li><strong>led:</strong> one leg in the <strong>resistor column</strong> and one in the <strong>red jumper</strong> one’s</li>
+</ul>
+
+<p><br /></p>
+
+<blockquote>
+  <p><small><strong>protip</strong>: led direction matters - but you won’t burn your house down if you have misplaced it</small></p>
+</blockquote>
+
+<p><br /></p>
+
+<h6 id="connecting-jumpers-to-your-raspberry">Connecting jumpers to your Raspberry</h6>
+<p><br /></p>
+
+<p><a>
+  <img src="/assets/images/raspberry/pin_layout-3e03ad6f2d3422277ca2ae0c36ca8ba84d6398a7e6d7aed8a0eb37d049e295b3.png" alt="Our set up" class="zooming" data-rjs="/assets/images/raspberry/pin_layout@2x-252a780dde45ea6d845cf56175bd4ff4a98b180c944790d324b635530ab7794f.png" data-zooming-width="" data-zooming-height="" />
+</a></p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>blue jumper:</strong> GND PIN</li>
+  <li><strong>red jumper:</strong> GPIO24 PIN</li>
+</ul>
+
+<p><br /></p>
+<h6 id="testing-your-setup">Testing your setup</h6>
+<p><br /></p>
+
+<p>If you are not sure about your setup, or if you are not sure about the positioning of your led, you can easily test it.</p>
+
+<p>Disconnect the <strong>red jumper</strong> from the Raspberry, connect to the power supply to your Raspberry Pi.
+Plug in the <strong>red jumper</strong> into the 3.3V or the 5V pin briefly.</p>
+
+<table>
+  <td style="width: 50%">
+    <a href="/assets/images/raspberry-pi-email-notification/schema@2x-78a5585ce9c0a8f1d3659e5b4dc0868b74fdcf59909c1ac07ecd042aad175083.jpg">
+      <img src="/assets/images/raspberry-pi-email-notification/schema-2a98a5d97781f9e13685d99e0c8f58aaf9ef80efde5faf1d5bf4a946bb6087c7.jpg" alt="" class="zooming" data-rjs="/assets/images/raspberry-pi-email-notification/schema@2x-78a5585ce9c0a8f1d3659e5b4dc0868b74fdcf59909c1ac07ecd042aad175083.jpg" data-zooming-width="" data-zooming-height="" />
+    </a>
+  </td>
+  <td style="width: 50%">
+      <a href="/assets/images/raspberry-pi-email-notification/test-schema@2x-9d54b04ba44d1b805ead741f1728ce939ecd50c36d90baf909c3e606a9a6a1f3.jpg">
+      <img src="/assets/images/raspberry-pi-email-notification/test-schema-19fc68b646d8665ea1de80ac3a79fad8c3ada5276053805ffea60d63f44c96bb.jpg" alt="" class="zooming" data-rjs="/assets/images/raspberry-pi-email-notification/test-schema@2x-9d54b04ba44d1b805ead741f1728ce939ecd50c36d90baf909c3e606a9a6a1f3.jpg" data-zooming-width="" data-zooming-height="" />
+    </a>    
+  </td>
+</table>
+
+<p>Led lights up? All good.
+No? Reverse your led.<br />
+Plug the red jumper back to GPIO24.</p>
+
+<hr />
+<p><br /></p>
+<h1 id="very-little-programming">(very) Little programming</h1>
+<p><a href="https://github.com/akselsio/raspberry-pi-email-notification/" target="_blank">source here</a></p>
+
+<blockquote>
+  <p>assuming that:</p>
+
+  <p>npm &gt;= 3</p>
+
+  <p>node &gt;= 4</p>
+</blockquote>
+
+<h4 id="dependencies">Dependencies</h4>
+
+<ul>
+  <li><a href="https://github.com/lorenwest/node-config" target="_blank">config</a> 1.24.x</li>
+  <li><a href="https://github.com/fivdi/onoff" target="_blank">onoff</a> 1.1.x</li>
+  <li><a href="https://github.com/mscdex/node-imap" target="_blank">imap</a> 0.8.x</li>
+  <li><a href="https://github.com/akselsio/gpio-misc-node" target="_blank">gpio-misc</a>: 0.0.1</li>
+</ul>
+
+<p>Open your favorite term and start a new npm project and install these dependencies.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>npm init
+<span class="nv">$ </span>npm i <span class="nt">--save</span> <span class="nt">--save-exact</span> config@1.24.0 onoff@1.1.x <span class="se">\</span>
+  imap@0.8.x gpio-misc@0.0.1</code></pre></figure>
+
+<p><code class="highlighter-rouge">imap</code> is here to retrieve information from our mailbox</p>
+
+<p><code class="highlighter-rouge">config</code> to handle configuration files.</p>
+
+<p><code class="highlighter-rouge">gpio-misc</code> to make the LED flash – a small package I wrote, <a href="https://github.com/akselsio/gpio-misc-node/blob/master/src/blink/index.js" target="_blank">source here</a>.</p>
+
+<p><code class="highlighter-rouge">onoff</code> is a dependency of <em>gpio-misc</em>, it’s used to handle the communication between our little program and the raspberry’s GPIOs.<br />
+<strong>You should read installation instruction <a href="https://github.com/fivdi/onoff#installation" target="_blank">here</a>.</strong></p>
+
+<h4 id="configuration">Configuration</h4>
+
+<p>Let’s create a <code class="highlighter-rouge">config</code> folder and create a <code class="highlighter-rouge">default.json</code> file inside.</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"auth"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youremail@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yourpassword"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"imap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"imap.gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">993</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>default.json</p>
+
+<p>Use the same structure, but fill it with your information of course :)<br />
+The imap configuration for Gmail/Inbox is correct. If you use another mail service, such as <small><a href="https://support.office.com/en-us/article/POP-and-IMAP-settings-for-Outlook-Office-365-for-business-7fc677eb-2491-4cbc-8153-8e7113525f6c" target="_blank">Outlook</a>,
+<small><a href="https://help.yahoo.com/kb/SLN4075.html" target="blank">Yahoo</a>,
+<small><a href="https://www.lifewire.com/what-are-aol-mail-imap-settings-1170847" target="blank">Aol</a>
+</small>
+</small>
+</small>
+,you will have to change this section as well.</p>
+
+<p><br /></p>
+<h4 id="creating-your-server">Creating your server</h4>
+<p><br /></p>
+<ul>
+  <li>Require Imap, to create the connection to our mailbox. <br />
+config to retrieve our variables previously set in default.json. <br />
+blink module from gpio-misc to make the LED.. blink, you’ve guessed.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Imap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">imap</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">blink</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">gpio-misc</span><span class="dl">'</span><span class="p">).</span><span class="nx">blink</span><span class="p">;</span></code></pre></figure>
+
+<ul>
+  <li>create an IMAP object, which can handle the connection to our mailbox, but also events
+such as receiving a new mail</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Create an IMAP object</span>
+<span class="kd">var</span> <span class="nx">imap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Imap</span><span class="p">({</span>
+  <span class="na">user</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">auth.email</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">password</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">auth.password</span><span class="dl">'</span><span class="p">),</span>
+
+  <span class="na">host</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">imap.host</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">port</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">imap.port</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">tls</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">imap.tls</span><span class="dl">'</span><span class="p">),</span>
+<span class="p">});</span></code></pre></figure>
+
+<ul>
+  <li>once the connection is successful to your email service, we’ll open your inbox called <strong>INBOX</strong> (the name of the inbox may change if you use a service other than gmail)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Open your Inbox</span>
+<span class="nx">imap</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="dl">'</span><span class="s1">ready</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">imap</span><span class="p">.</span><span class="nx">openBox</span><span class="p">(</span><span class="dl">'</span><span class="s1">INBOX</span><span class="dl">'</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`successfully connected to </span><span class="p">${</span><span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">auth.email</span><span class="dl">'</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span></code></pre></figure>
+
+<ul>
+  <li>we’ll print errors, quite useful for debugging purposes</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Display errors</span>
+<span class="nx">imap</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`error: </span><span class="p">${</span><span class="nx">err</span><span class="p">.</span><span class="nx">textCode</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<ul>
+  <li>remember you connected your LED on GPIO24? well when we will receive a mail, we will make blink this one, <a href="http://goo.gl/xPe7W8" target="_blank">42</a> times</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// On new mail blink</span>
+<span class="nx">imap</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">mail</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Blink on GPIO24, 42 times</span>
+  <span class="nx">blink</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">42</span><span class="p">);</span>
+<span class="p">})</span></code></pre></figure>
+
+<ul>
+  <li>finally we’ll launch our connection to our email service and wait for these events</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">imap</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span></code></pre></figure>
+
+<hr />
+<p><br /></p>
+<h1 id="testing-on-your-raspberry-pi">Testing on your Raspberry Pi</h1>
+<p><br /></p>
+
+<blockquote>
+  <p>assuming that:</p>
+
+  <p>node &gt;= 4 &amp; npm &gt;= 3 is installed on it</p>
+
+  <p>you have already logged into the Raspberry and configured a ssh connection</p>
+</blockquote>
+
+<h5 id="find-your-raspberry-pis-ip-address-and-connect">Find your Raspberry PI’s IP address and connect</h5>
+
+<p><br />
+We’ll run the <code class="highlighter-rouge">nmap</code> command with <code class="highlighter-rouge">-sn</code> flag which will ping scan all the subnet range, and it’ll print its hostname.
+In this example <strong>192.168.1.21</strong> is our Raspberry local IP.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># scan this subnet range</span>
+<span class="nv">$ </span>nmap <span class="nt">-sn</span> 192.168.1.0/24 | grep raspberry
+
+<span class="c"># expected result</span>
+Nmap scan report <span class="k">for </span>raspberrypi.home <span class="o">(</span>192.168.1.21<span class="o">)</span></code></pre></figure>
+
+<ul>
+  <li>we will create a folder where you will <code class="highlighter-rouge">scp</code> all our stuff to your Raspberry</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># replace with your IP address of course</span>
+<span class="nv">$ </span>ssh pi@192.168.1.21
+
+<span class="c"># create the folder</span>
+pi@raspberry:~ <span class="nv">$ </span><span class="nb">mkdir </span>email-notification
+
+<span class="c"># and just logout</span>
+pi@raspberry:~ <span class="nv">$ </span><span class="nb">logout</span></code></pre></figure>
+
+<ul>
+  <li>copying our project to your Raspberry with <code class="highlighter-rouge">scp</code> from the root of our folder</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">scp <span class="nt">-r</span> <span class="nb">.</span> pi@raspberrypi:/home/pi/email-notification</code></pre></figure>
+
+<p><small><em>nb: If you have also copied the folder <strong>node_modules</strong>, consider removing it on the Raspberry. Indeed, you surely have a different architecture between your Raspberry and your PC.</em></small></p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># log back to your Raspberry</span>
+<span class="nv">$ </span>ssh pi@192.168.1.21
+
+<span class="c"># go to the folder where you did your scp</span>
+pi@raspberry:~ <span class="nv">$ </span><span class="nb">cd </span>email-notification
+
+<span class="c"># install node modules</span>
+pi@raspberry:~/email-notification <span class="nv">$ </span>npm i
+
+<span class="c"># launch your server</span>
+<span class="c"># (npm start if you have configured your package.json)</span>
+pi@raspberry:~/email-notification <span class="nv">$ </span>node server.js</code></pre></figure>
+
+<p><a>
+  <img src="/assets/images/raspberry-pi-email-notification/blink-4a49d7ee96c6427d499850c8357d51bdfd69579fc084f78379af5e6e6d515302.gif" alt="End result" class="zooming" data-rjs="/assets/images/raspberry-pi-email-notification/blink@2x-697ae5e81242207ee1ec40d6760f9b4a6a587e300b34655b4f15d960f73852ac.gif" data-zooming-width="" data-zooming-height="" />
+</a></p>
+
+<hr />
+<p><br /></p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p><br /></p>
+
+<h4 id="file-system-permissions-issues">File system permissions issues</h4>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">fs.js:640
+  <span class="k">return </span>binding.open<span class="o">(</span>pathModule._makeLong<span class="o">(</span>path<span class="o">)</span>, stringToFlags<span class="o">(</span>flags<span class="o">)</span>, mode<span class="o">)</span><span class="p">;</span>
+                 ^
+
+Error: EACCES: permission denied, open <span class="s1">'/sys/class/gpio/export'</span></code></pre></figure>
+
+<p>If you encounter this error, two options:</p>
+
+<p>1) messy, but works: <code class="highlighter-rouge">sudo node server.js</code> or <code class="highlighter-rouge">sudo npm start</code><br />
+2) install Raspbian Jessie - from scratch not with apt-get</p>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Raspberry+Pi+email+LED+notifier%20-%20http://aksels.io//posts/raspberry-pi-email-notification%20by%20@AkselsLedins" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://aksels.io//posts/raspberry-pi-email-notification" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=http://aksels.io//posts/raspberry-pi-email-notification" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script src="https://aksels.disqus.com/embed.js" async defer></script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    <a href="/about">An enthusiastic French Software Engineer.</a>
+    <br/>
+    <br/>
+    <div>
+      <span style="width:100px;display:inline-block">Personal</span> <a target="_blank" href="https://aksels.me">aksels.me</a><br/>
+    <div>
+    <div>
+      <span style="width:100px;display:inline-block">Blog</span> <a target="_blank" href="https://aksels.io">aksels.io</a>
+    </div>
+    <div>
+      <span style="width:100px;display:inline-block">Freelancing</span> <a target="_blank" href="https://hypermoon.io">hypermoon.io</a>
+    </div>
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88694407-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-88694407-1');
+  </script>
+
+
+<script src="/assets/javascripts/vendor-9a9dd357c523104bebaea02251409e037c69b20c285bdfbc6961ef0245cf9c11.js" type="text/javascript"></script>
+
+
+  <script src="/assets/javascripts/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/javascripts/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/javascripts/application-cfde13ac81ddaf4351b2e739603e2baf688d0fcc9aba613fe62bbb1c7b037fb9.js" type="text/javascript"></script>
+
+
+</body>
+</html>

@@ -1,4 +1,0 @@
----
-slug: expo
-name: Expo
----

@@ -1,20 +1,42 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:dc="https://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>aksels.io</title>
+    <description></description>
+    <link>http://aksels.io/</link>
+    <atom:link href="http://aksels.io//feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>Singapore Baguette</title>
+        <description>Gathering information about baguettes in Singapore</description>
+        <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
+        <link>http://aksels.io//posts/singapore-baguette</link>
+        <guid isPermaLink="true">http://aksels.io//posts/singapore-baguette</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Taka - Quite a journey</title>
+        <description>A public transportation app for Nantes, France</description>
+        <pubDate>Tue, 22 Jan 2019 00:00:00 +0800</pubDate>
+        <link>http://aksels.io//posts/taka-quite-a-journey</link>
+        <guid isPermaLink="true">http://aksels.io//posts/taka-quite-a-journey</guid>
+      </item>
+    
+      <item>
+        <title>KFC - Soda cup exploit - (almost) Free drinks (as before)</title>
+        <description>THIS ONLY WORKS IN FRANCE.</description>
+        <pubDate>Mon, 20 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://aksels.io//posts/kfc-soda-cup-exploit-france</link>
+        <guid isPermaLink="true">http://aksels.io//posts/kfc-soda-cup-exploit-france</guid>
+      </item>
+    
+      <item>
+        <title>Raspberry Pi email LED notifier</title>
+        <description>Create a Raspberry email LED notifier in less than 30 minutes.</description>
+        <pubDate>Thu, 29 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://aksels.io//posts/raspberry-pi-email-notification</link>
+        <guid isPermaLink="true">http://aksels.io//posts/raspberry-pi-email-notification</guid>
+      </item>
+    
   </channel>
 </rss>
